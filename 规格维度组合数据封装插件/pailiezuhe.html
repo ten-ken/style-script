@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			.select-infoH {
+				width: 100px;
+				height: 130px;
+			}
+		</style>
+	</head>
+	<link href="js/select2/select2.css" rel="stylesheet" type="text/css" />
+	<!-- select2 -->
+	　<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script src="js/select2/select2.js" type="text/javascript"></script>
+	<script src="js/select2/select2_locale_zh-CN.js" type="text/javascript"></script>
+	<script src="js/combination_struct.js" type="text/javascript"></script>
+
+	<script type="text/html" id="mtable">
+		<thead>
+			${thead}
+		</thead>
+		<tbody>
+			${tbody}
+		</tbody>
+	</script>
+
+	<body>
+		<!-- name必须要  typeId可以为空  -->
+		<select class="select-infoH form-control" name="颜色" multiple="multiple" typeId="10086">
+			<option value="001">黑色</option>
+			<option value="002">红色</option>
+		</select>
+
+		<select class="select-infoH" name="尺码" multiple="multiple" typeId="10087">
+			<option value="101">39</option>
+			<option value="102">41</option>
+			<option value="105">42</option>
+			<option value="106">43</option>
+		</select>
+
+		<select class="select-infoH" name="季节" multiple="multiple" typeId="10088">
+			<option value="101">春季</option>
+			<option value="102">夏季</option>
+			<option value="105">秋季</option>
+			<option value="106">冬季</option>
+			<option value="107">11</option>
+			<option value="108">12</option>
+			<option value="109">14</option>
+			<option value="110">15</option>
+		</select>
+
+
+		<select class="select-infoH" name="备用-1" multiple="multiple" typeId="10088">
+			<option value="b1-01">备用b101</option>
+			<option value="b1-02">备用b103</option>
+			<option value="107">11</option>
+			<option value="108">12</option>
+			<option value="109">14</option>
+			<option value="110">15</option>
+		</select>
+
+
+		<select class="select-infoH" name="备用-2" multiple="multiple" typeId="10088">
+			<option value="b2-01">备用b221</option>
+			<option value="b2-02">备用b251</option>
+			<option value="b3-03">备用b289</option>
+			<option value="107">11</option>
+			<option value="108">12</option>
+			<option value="109">14</option>
+			<option value="110">15</option>
+		</select>
+
+		<select class="select-infoH" name="备用-3" multiple="multiple" typeId="10088">
+			<option value="b3-01">备用b3aa</option>
+			<option value="b3-03">备用b3af1</option>
+		</select>
+
+
+		<table border="1" style="margin: 10px;">
+			<thead>
+				<tr>
+					<th>Month</th>
+					<th>Savings</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th>1月</th>
+					<th>否</th>
+				</tr>
+			</tbody>
+		</table>
+
+		<button onclick="getTableData()">获取值</button>
+		<button onclick="getRowTd()">获取行<tr>的名字</button>
+	</body>
+	<script>
+		$(".select-infoH").select2({
+			width: 200 + "px",
+			placeholder: "点击输入框，可以多选"
+		});
+
+		var comb = new CombinationStruct(); 
+		comb.init({select_info:".select-infoH"});
+		
+		function getTableData() {
+			console.log(comb.getTableData());
+		}
+
+		function getRowTd() {
+			console.log(comb.getRowTd());
+		}
+		//原有最简单的模式
+		// 				function doCombination(arr, index = 0) {
+		// 					for (var i = 0; i < arr[index].length; i++) {
+		// 						result[index] = arr[index][i];
+		// 						if (index != arr.length - 1) {
+		// 							doCombination(arr, index + 1)
+		// 						} else {
+		// 							results.push(result.join(','))
+		// 						}
+		// 					}
+		// 				}
+		//console.log(results.length);
+	</script>
+</html>

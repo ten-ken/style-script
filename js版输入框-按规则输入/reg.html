@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" onkeyup="checkNum(this)" />
+	</body>
+	<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script>
+		//仅仅能输入正整数 包括0
+		function checkNum(obj) {
+			var str = obj.value;
+			var reg = /^(0|[1-9][\d]*)$/;
+			if (!str.match(reg)) {
+				var con = str.replace(/[^\d]/gi, "");
+				if(con.indexOf("0")==0){//0开头
+					con = str.replace(/[^0]/gi, "");
+				}
+				//var con = str.replace(/(0[\s\S]*|[\D]{1}[\s\S]*)/g, "");
+				$(obj).val(con);
+			}
+		}
+
+		//可以输入正小数和整数 ==小数默认保留两位小数  保留位数为可定义
+		function checkDoubleNum(obj, pe) {
+			var regstr = "/^(([1-9][0-9]*|0)([\.]?[0-9]{0,#}))$/"; //正则表达式模板
+			if (pe == null || pe == null || pe == 'undefined') {
+				pe = 2;
+			}
+			var reg = eval(regstr.replace("#", pe)); //转换为正则表达式
+			var str = obj.value;
+			if (!str.match(reg)) {
+				var con = str.replace(/[^(0-9\.)]/gi, "");
+				con = con.replace(/\.[\.]+/g, "."); //第一个点标记
+				console.log(con);
+				if (con.indexOf(".") == 0) { //第一位是点
+					con = con.replace(/\.[\.]*/, ""); //去掉
+				}
+				if (con.lastIndexOf(".") == con.length-1) { //最后一位是点
+					con = con.replace(/\.$/, ""); //去掉
+				}
+				con = con.replace(".", "#"); //标记第一个点
+				con = con.replace(/\./g,"");
+				var arr =con.split("#");
+				var lastV;
+				if(arr.length==2){
+					 lastV = arr[0]+"."+arr[1].substring(0,Number(pe));
+				}else{
+					 lastV = arr[0];
+				}
+				$(obj).val(lastV);
+			}
+		}
+	</script>
+</html>
