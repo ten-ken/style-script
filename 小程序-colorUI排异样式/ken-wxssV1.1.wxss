@@ -1,0 +1,46 @@
+
+/* *****针对colorUI的radio switch checkbox的样式冲突做出 最大程度还原原有样式 即在class加上my-xx (注xx代表标签名称) 有需要引入该css即可****** */
+
+.my-switch,
+.my-checkbox,
+.my-radio {
+	position: static !important;
+}
+
+.my-radio .wx-radio-input,
+.my-checkbox .wx-checkbox-input {
+	margin: 0;
+	width: 18px;
+	height: 18px;
+}
+
+.my-checkbox.round .wx-checkbox-input {
+	border-radius: 100rpx;
+}
+
+
+.my-radio.radio::before,
+.my-checkbox .wx-checkbox-input::before,
+.my-radio .wx-radio-input::before,
+.my-radio.radio::before {
+	display: inline-block !important;
+}
+
+.my-checkbox[class*=""][checked] .wx-checkbox-input,
+.my-checkbox[checked] .wx-checkbox-input,
+.my-radio[class*=""][checked] .wx-radio-input {
+	border-color: white !important;
+}
+
+.my-checkbox[class*=""][checked] .wx-checkbox-input,
+.my-checkbox[checked] .wx-checkbox-input{
+	background-color: white !important;
+	color:green !important;
+}
+
+/* .my-radio,
+.my-radio[class*=""][checked] .wx-radio-input,
+.my-radio[checked] .wx-radio-input {
+	background-color: white !important;
+	color:white !important;
+} */
