@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "ken-tabbar": "../component/ken-tabBar/index",
+    "mp-msg": "../../component/msg/msg"
+  }
+}

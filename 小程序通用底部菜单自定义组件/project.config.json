@@ -1,0 +1,84 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"coverView": true,
+		"autoAudits": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		}
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.5.0",
+	"appid": "wx10c344d82311a94d",
+	"projectname": "%E8%87%AA%E5%AE%9A%E4%B9%89%20tabBar-1",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 3,
+			"list": [
+				{
+					"id": 0,
+					"name": "微信UI 底部菜单示例",
+					"pathName": "index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 1,
+					"name": "My底部菜单样式1一示例",
+					"pathName": "index/index2",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 2,
+					"name": "My底部菜单样式2一示例",
+					"pathName": "index/index3",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 3,
+					"name": "My底部菜单样式3一示例",
+					"pathName": "custom-tab-bar-my/index",
+					"query": "",
+					"scene": null
+				}
+			]
+		}
+	}
+}

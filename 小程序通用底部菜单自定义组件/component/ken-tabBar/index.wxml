@@ -1,0 +1,9 @@
+  <view class="cu-bar tabbar tab-bar bg-white" style="z-index:{{zIndex}};background-color:{{bgColor}}">
+    <view class="action" bindtap="_switchTab"  data-index='{{index}}' data-url="{{item.urlPath}}" wx:for="{{list}}" wx:key="{{index}}">
+      <view class="icon-cu-image">
+        <image src="{{selectInd == index ? item.selectedIconPath : item.iconPath}}"></image>
+        <mp-ken-badge wx:if="{{item.badge}}" content="{{item.badge}}" ext-class="_ipt bg-{{badgeBg}} text-{{badgeCl}}" style="position: absolute;top:-2px;"></mp-ken-badge>
+      </view>
+      <view class="text-{{index == selectInd ? textColorSelect:textColorDefault}}" >{{item.text}}</view>
+    </view>
+  </view>

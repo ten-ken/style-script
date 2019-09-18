@@ -1,0 +1,9 @@
+<view class="cu-bar tabbar tab-bar bg-white" style="z-index:{{zIndex}};background-color:{{bgColor}}">
+  <view class="action text-{{selectInd === index ? 'orange':'gray'}} {{item.action?'add-action':''}}" bindtap="_switchTab"  data-index='{{index}}' data-url="{{item.urlPath}}" wx:for="{{list}}" wx:key="{{index}}">
+    <view class="cuIcon {{item.icon}} text-{{selectInd === index ? textColorSelect:textColorDefault}} {{item.action?'cu-btn shadow':''}} bg-{{item.bgColor}}">
+      <view class="cu-tag badge _ipt text-{{badgeCl}} bg-{{badgeBg}}" wx:if="{{item.badge}}">{{item.badge}}</view>
+    </view>{{item.text}}
+  </view>
+
+</view>
+ 

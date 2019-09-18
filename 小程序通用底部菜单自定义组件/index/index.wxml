@@ -1,0 +1,5 @@
+<view class="intro">组件</view>
+
+<!-- 微信官方组件 -->
+<mp-tabbar style="position:fixed;bottom:0;width:100%;left:0;right:0;" list="{{list}}" bindchange="tabChange"></mp-tabbar>
+

@@ -1,0 +1,42 @@
+<view class="intro">设置</view>
+
+
+<!-- 自定义底部菜单 -->
+<ken-tabbar list="{{list}}" bindchange="tabChangeE" selectInd="1" bgColor="white" zIndex="5" textColorDefault="black"
+ textColorSelect="green" stopSkip="{{true}}" badgeBg="orange" badgeCl="white"></ken-tabbar>
+
+ 
+<!-- 
+    list 是数据源 可见js文件
+    tabChangeE是绑定当前页面的触发方法
+    selectInd是当前选择的菜单下标值
+    bgColor 底部背景颜色
+    zIndex 底部层级值 防止其他组件覆盖可设置大点 值为-999至999
+    textColorDefault 文字未选择颜色 默认黑色
+    textColorSelect 文本选择后的颜色  默认橙色
+    stopSkip  是否禁止跳转页面
+    badgeBg: 徽章颜色
+    badgeCl：徽章文字颜色 默认白色
+    //颜色或背景色参考---colorUi文档
+ -->
+
+
+
+<!-- msg组件 -->
+<mp-msg type="success" title="操作成功">
+    <view slot="desc">内容详情，可根据实际需要安排，如果换行则不超过规定长度，居中展现<navigator url="" class="weui-msg__link">文字链接</navigator></view>
+    <view slot="extend">
+        <view>1. 说明1</view>
+        <view>2. 说明2</view>
+    </view>
+    <view slot="handle">
+        <button class="weui-btn" type="primary">主要操作</button>
+        <button class="weui-btn" type="default">辅助操作</button>
+    </view>
+    <view slot="footer">
+        <view class="weui-footer__links">
+            <navigator url="" class="weui-footer__link">底部链接文本</navigator>
+        </view>
+        <view class="weui-footer__text">Copyright © 2008-2016 weui.io</view>
+    </view>
+</mp-msg>

@@ -1,0 +1,23 @@
+ 
+   <cover-view class="fix_btn">
+        <cover-view class="tab" bindtap="clickBar" data-index="0" data-url="/pages/index-index/index">
+            <cover-image class="icon" src="/images/iconfont-home{{selectInd==0?'-active':''}}.png"></cover-image>
+            <cover-view class="word {{selectInd==0?'wordSelect':''}}">首页</cover-view>
+        </cover-view>
+        <cover-view class="tab" bindtap="clickBar" data-index="1" data-url="/pages/interests/interests">
+            <cover-image class="icon" src="/images/iconfont-service{{selectInd==1?'-active':''}}.png"></cover-image>
+            <cover-view class="word {{selectInd==1?'wordSelect':''}}">分类</cover-view>
+        </cover-view>
+        <cover-view class="tab" bindtap="clickBar" data-index="2" data-url="/pages/seckil/seckil">
+            <cover-image class="icon icon_center" src="/images/miaosha_2.png"></cover-image>
+        </cover-view>
+        <cover-view class="tab" bindtap="clickBar" data-index="3" data-url="/pages/cart/cart">
+            <cover-image class="icon" src="/images/iconfont-cart{{selectInd==3?'-active':''}}.png"></cover-image>
+            <cover-view class="word {{selectInd==3?'wordSelect':''}}">购物车</cover-view>
+        </cover-view>
+        <cover-view class="tab" bindtap="clickBar" data-index="4" data-url="/pages/ucenter/index/index">
+            <cover-image class="icon" src="/images/iconfont-user{{selectInd==4?'-active':''}}.png"></cover-image>
+            <cover-view class="word {{selectInd==4?'wordSelect':''}}">我的</cover-view>
+        </cover-view>
+    </cover-view>
+

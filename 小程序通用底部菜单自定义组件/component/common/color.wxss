@@ -1,0 +1,580 @@
+
+page {
+--red: #e54d42;
+  --orange: #f37b1d;
+  --yellow: #fbbd08;
+  --olive: #8dc63f;
+  --green: #39b54a;
+  --cyan: #1cbbb4;
+  --blue: #0081ff;
+  --purple: #6739b6;
+  --mauve: #9c26b0;
+  --pink: #e03997;
+  --brown: #a5673f;
+  --grey: #8799a3;
+  --gray: #aaa;
+  --black: #333;
+  --white: #fff;
+  --gradualRed: linear-gradient(45deg, #f43f3b, #ec008c);
+  --gradualOrange: linear-gradient(45deg, #ff9700, #ed1c24);
+  --gradualGreen: linear-gradient(45deg, #39b54a, #8dc63f);
+  --gradualPurple: linear-gradient(45deg, #9000ff, #5e00ff);
+  --gradualPink: linear-gradient(45deg, #ec008c, #6739b6);
+  --gradualBlue: linear-gradient(45deg, #0081ff, #1cbbb4);
+}
+
+/* 颜色start */
+
+.text-red{
+  color: var(--red);
+}
+
+.text-orange{
+  color: var(--orange);
+}
+
+.text-yellow{
+  color: var(--yellow);
+}
+
+.text-olive{
+  color: var(--olive);
+}
+
+.text-green{
+  color: var(--green);
+}
+
+.text-cyan {
+  color: var(--cyan);
+}
+
+.text-blue{
+  color: var(--blue);
+}
+
+.text-purple{
+  color: var(--purple);
+}
+
+.text-mauve{
+  color: var(--mauve);
+}
+
+.text-pink{
+  color: var(--pink);
+}
+
+.text-brown{
+  color: var(--brown);
+}
+
+.text-grey{
+  color: var(--grey);
+}
+
+.text-gray{
+  color: var(--grey);
+}
+
+.text-black{
+  color: var(--black);
+}
+
+.text-white{
+  color: #fff;
+}
+
+
+.bg-red {
+  background-color: var(--red);
+  color: #fff;
+}
+
+.bg-orange {
+  background-color: var(--orange);
+  color: #fff;
+}
+
+.bg-yellow {
+  background-color: var(--yellow);
+  color: var(--black);
+}
+
+.bg-olive {
+  background-color: var(--olive);
+  color: #fff;
+}
+
+.bg-green {
+  background-color: var(--green);
+  color: #fff;
+}
+
+.bg-cyan {
+  background-color: var(--cyan);
+  color: #fff;
+}
+
+.bg-blue {
+  background-color: var(--blue) ;
+  color: #fff;
+}
+
+.bg-purple {
+  background-color: var(--purple);
+  color: #fff;
+}
+
+.bg-mauve {
+  background-color: var(--mauve);
+  color: #fff;
+}
+
+.bg-pink {
+  background-color: var(--pink);
+  color: #fff;
+}
+
+.bg-brown {
+  background-color: var(--brown);
+  color: #fff;
+}
+
+.bg-grey {
+  background-color: var(--grey);
+  color: #fff;
+}
+
+.bg-gray {
+  background-color: #f0f0f0;
+  color: #666;
+}
+
+.bg-black {
+  background-color: var(--black);
+  color: #fff;
+}
+
+.bg-white {
+  background-color: #fff;
+  color: #666;
+}
+
+
+/* 颜色end */
+
+._deep.text-red{
+  color: var(--red);
+}
+
+._deep.text-orange{
+  color: var(--orange);
+}
+
+._deep.text-yellow{
+  color: var(--yellow);
+}
+
+._deep.text-olive{
+  color: var(--olive);
+}
+
+._deep.text-green{
+  color: var(--green);
+}
+
+._deep.text-cyan {
+  color: var(--cyan);
+}
+
+._deep.text-blue{
+  color: var(--blue);
+}
+
+._deep.text-purple{
+  color: var(--purple);
+}
+
+._deep.text-mauve{
+  color: var(--mauve);
+}
+
+._deep.text-pink{
+  color: var(--pink);
+}
+
+._deep.text-brown{
+  color: var(--brown);
+}
+
+.text-grey{
+  color: var(--grey);
+}
+
+.text-gray{
+  color: var(--grey);
+}
+
+.text-black{
+  color: var(--black);
+}
+
+.text-white{
+  color: #fff;
+}
+
+
+.bg-red {
+  background-color: var(--red);
+  color: #fff;
+}
+
+.bg-orange {
+  background-color: var(--orange);
+  color: #fff;
+}
+
+.bg-yellow {
+  background-color: var(--yellow);
+  color: var(--black);
+}
+
+.bg-olive {
+  background-color: var(--olive);
+  color: #fff;
+}
+
+.bg-green {
+  background-color: var(--green);
+  color: #fff;
+}
+
+.bg-cyan {
+  background-color: var(--cyan);
+  color: #fff;
+}
+
+.bg-blue {
+  background-color: var(--blue);
+  color: #fff;
+}
+
+.bg-purple {
+  background-color: var(--purple);
+  color: #fff;
+}
+
+.bg-mauve {
+  background-color: var(--mauve);
+  color: #fff;
+}
+
+.bg-pink {
+  background-color: var(--pink);
+  color: #fff;
+}
+
+.bg-brown {
+  background-color: var(--brown);
+  color: #fff;
+}
+
+.bg-grey {
+  background-color: var(--grey);
+  color: #fff;
+}
+
+.bg-gray {
+  background-color: #f0f0f0;
+  color: #666;
+}
+
+.bg-black {
+  background-color: var(--black);
+  color: #fff;
+}
+
+.bg-white {
+  background-color: #fff;
+  color: #666;
+}
+
+
+
+/* 固定颜色 和 背景色*/
+
+._ipt.text-red{
+  color: var(--red)  !important;
+}
+
+._ipt.text-orange{
+  color: var(--orange)  !important;
+}
+
+._ipt.text-yellow{
+  color: var(--yellow)  !important;
+}
+
+._ipt.text-olive{
+  color: var(--olive)  !important;
+}
+
+._ipt.text-green{
+  color: var(--green)  !important;
+}
+
+._ipt.text-cyan {
+  color: var(--cyan)  !important;
+}
+
+._ipt.text-blue{
+  color: var(--blue)  !important;
+}
+
+._ipt.text-purple{
+  color: var(--purple)  !important;
+}
+
+._ipt.text-mauve{
+  color: var(--mauve)  !important;
+}
+
+._ipt.text-pink{
+  color: var(--pink)  !important;
+}
+
+._ipt.text-brown{
+  color: var(--brown)  !important;
+}
+
+._ipt.text-grey{
+  color: var(--grey)  !important;
+}
+
+._ipt.text-gray{
+  color: var(--grey)  !important;
+}
+
+._ipt.text-black{
+  color: var(--black)  !important;
+}
+
+._ipt.text-white{
+  color: #fff  !important;
+}
+
+
+._ipt.bg-red {
+  background-color: var(--red)  !important;
+  color: #fff;
+}
+
+._ipt.bg-orange {
+  background-color: var(--orange)  !important;
+  color: #fff;
+}
+
+._ipt.bg-yellow {
+  background-color: var(--yellow)  !important;
+  color: var(--black)  !important;
+}
+
+._ipt.bg-olive {
+  background-color: var(--olive)  !important;
+  color: #fff  !important;
+}
+
+._ipt.bg-green {
+  background-color: var(--green)  !important;
+  color: #fff  !important;
+}
+
+._ipt.bg-cyan {
+  background-color: var(--cyan)  !important;
+  color: #fff  !important;
+}
+
+._ipt.bg-blue {
+  background-color: var(--blue)   !important;
+  color: #fff  !important;
+}
+
+._ipt.bg-purple {
+  background-color: var(--purple)  !important;
+  color: #fff  !important;
+}
+
+._ipt.bg-mauve {
+  background-color: var(--mauve)  !important;
+  color: #fff  !important;
+}
+
+._ipt.bg-pink {
+  background-color: var(--pink)  !important;
+  color: #fff  !important;
+}
+
+._ipt.bg-brown {
+  background-color: var(--brown)  !important;
+  color: #fff  !important;
+}
+
+._ipt.bg-grey {
+  background-color: var(--grey)  !important;
+  color: #fff  !important;
+}
+
+._ipt.bg-gray {
+  background-color: #f0f0f0  !important;
+  color: #666  !important;
+}
+
+._ipt.bg-black {
+  background-color: var(--black)  !important;
+  color: #fff  !important;
+}
+
+._ipt.bg-white {
+  background-color: #fff  !important;
+  color: #666;
+}
+
+
+/* 颜色end */
+
+._ipt.text-red{
+  color: var(--red)  !important;
+}
+
+._ipt.text-orange{
+  color: var(--orange)  !important;
+}
+
+._ipt.text-yellow{
+  color: var(--yellow)  !important;
+}
+
+._ipt.text-olive{
+  color: var(--olive)  !important;
+}
+
+._ipt.text-green{
+  color: var(--green)  !important;
+}
+
+._ipt.text-cyan {
+  color: var(--cyan)  !important;
+}
+
+._ipt.text-blue{
+  color: var(--blue)  !important;
+}
+
+._ipt.text-purple{
+  color: var(--purple)  !important;
+}
+
+._ipt.text-mauve{
+  color: var(--mauve)  !important;
+}
+
+._ipt.text-pink{
+  color: var(--pink)  !important;
+}
+
+._ipt.text-brown{
+  color: var(--brown)  !important;
+}
+
+._ipt.text-grey{
+  color: var(--grey)  !important;
+}
+
+._ipt.text-gray{
+  color: var(--grey)  !important;
+}
+
+._ipt.text-black{
+  color: var(--black)  !important;
+}
+
+._ipt.text-white{
+  color: #fff  !important;
+}
+
+
+._ipt.bg-red {
+  background-color: var(--red)  !important;
+  color: #fff;
+}
+
+._ipt.bg-orange {
+  background-color: var(--orange)  !important;
+  color: #fff;
+}
+
+._ipt.bg-yellow {
+  background-color: var(--yellow)  !important;
+  color: var(--black);
+}
+
+._ipt.bg-olive {
+  background-color: var(--olive)  !important;
+  color: #fff;
+}
+
+._ipt.bg-green {
+  background-color: var(--green)  !important;
+  color: #fff;
+}
+
+._ipt.bg-cyan {
+  background-color: var(--cyan)  !important;
+  color: #fff;
+}
+
+._ipt.bg-blue {
+  background-color: var(--blue)  !important;
+  color: #fff;
+}
+
+._ipt.bg-purple {
+  background-color: var(--purple)  !important;
+  color: #fff;
+}
+
+._ipt.bg-mauve {
+  background-color: var(--mauve)  !important;
+  color: #fff;
+}
+
+._ipt.bg-pink {
+  background-color: var(--pink)  !important;
+  color: #fff;
+}
+
+._ipt.bg-brown {
+  background-color: var(--brown)  !important;
+  color: #fff;
+}
+
+._ipt.bg-grey {
+  background-color: var(--grey)  !important;
+  color: #fff;
+}
+
+._ipt.bg-gray {
+  background-color: #f0f0f0  !important;
+  color: #666;
+}
+
+._ipt.bg-black {
+  background-color: var(--black)  !important;
+  color: #fff;
+}
+
+._ipt.bg-white {
+  background-color: #fff  !important;
+  color: #666;
+}

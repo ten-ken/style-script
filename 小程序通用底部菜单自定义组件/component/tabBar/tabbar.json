@@ -1,0 +1,6 @@
+{
+    "component": true,
+    "usingComponents": {
+        "cur-mp-badge": "/component/badge/badge"
+    }
+}
