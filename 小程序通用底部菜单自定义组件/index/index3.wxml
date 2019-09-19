@@ -1,7 +1,7 @@
 <view class="intro">其他</view>
 
 <!-- 自定义底部菜单 -->
-<ken-tabbar list="{{list}}" bindchange="tabChangeE" selectInd="0" bgColor="white" zIndex="5" textColorDefault="black"
+<ken-tabbar list="{{list}}" bindchange="tabChangeE" selectInd="0" bgColor="#F7F7F7" zIndex="5" textColorDefault="black"
 textColorSelect="orange"  stopSkip="{{true}}" badgeBg="orange" badgeCl="white"></ken-tabbar>
 
 <!-- 
@@ -15,5 +15,5 @@ textColorSelect="orange"  stopSkip="{{true}}" badgeBg="orange" badgeCl="white"><
     stopSkip  是否禁止跳转页面
      badgeBg: 徽章颜色
     badgeCl：徽章文字颜色 默认白色
-    //颜色或背景色参考---colorUi文档
+ //颜色或背景色参考（仅底部整体背景颜色支持 颜色HEX/颜色RGB---对应属性bgColor 其他部分颜色需参考colorUI颜色）---colorUi文档
  -->
