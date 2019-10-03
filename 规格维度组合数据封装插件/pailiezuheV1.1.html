@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			input.select-infoH {
+				width: 20px;
+				height: 20px;
+			}
+
+			select.select-infoH {
+				width: 100px;
+				height: 130px;
+			}
+		</style>
+	</head>
+	<link href="js/select2/select2.css" rel="stylesheet" type="text/css" />
+	　<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script src="combination_struct.v1.1.js" type="text/javascript"></script>
+
+	<body>
+		<p>性别
+			<checkgroup typeId="008" topText="性别" class="select-infoH" name="sex">
+				<input type="radio" name="sex" value="0" showValue="男" /> 男
+				<input type="radio" name="sex" value="1" showValue="女" /> 女
+			</checkgroup>
+		</p>
+		<p>出口国
+			<checkgroup typeId="992" topText="出口国" class="select-infoH" name="gj">
+				<input type="checkbox" name="gj" value="China" showValue="中国" /> 中国
+				<input type="checkbox" name="gj" value="Americel" showValue="美国" /> 美国
+				<input type="checkbox" name="gj" value="japanise" showValue="日本" /> 日本
+			</checkgroup>
+		</p>
+
+
+		<!-- name必须要  typeId可以为空  -->
+		<select class="select-infoH form-control" name="color" multiple="multiple" typeId="10086" topText="颜色">
+			<option value="001">黑色</option>
+			<option value="002">红色</option>
+		</select>
+
+		<select class="select-infoH" name="size" multiple="multiple" typeId="10087" topText="尺码">
+			<option value="101">39</option>
+			<option value="102">41</option>
+			<option value="105">42</option>
+			<option value="106">43</option>
+		</select>
+
+		<select class="select-infoH" name="jijie" multiple="multiple" typeId="10088" topText="季节">
+			<option value="101">春季</option>
+			<option value="102">夏季</option>
+			<option value="105">秋季</option>
+			<option value="106">冬季</option>
+		</select>
+
+
+		<select class="select-infoH" name="remark" multiple="multiple" typeId="10088" topText="备注">
+			<option value="107">11</option>
+			<option value="108">12</option>
+			<option value="109">14</option>
+			<option value="110">15</option>
+		</select>
+
+		<button onclick="getTableData()">获取值</button>
+		<button onclick="getRowTd()">获取行<tr>的名字</button>
+	</body>
+	<script>
+		var comb = new CombinationStruct();
+		comb.init({
+			select_info: ".select-infoH",
+			extra: {
+				"weight": {
+					value: "",
+					name: "weight",
+					showV: "重量",
+					topId: "",
+					topText: "重量"
+				},
+				"stock": {
+					value: "",
+					name: "stock",
+					showV: "库存",
+					topId: "",
+					topText: "库存"
+				}
+			},
+			extraParam: true
+		});
+
+		function getTableData() {
+			var jj = comb.getTableData();
+			console.log(jj);
+
+		}
+
+		function getRowTd() {
+			console.log(comb.getRowTd());
+		}
+	</script>
+</html>
