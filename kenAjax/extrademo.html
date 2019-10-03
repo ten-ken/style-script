@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+		<p>--------------仿写ajax（原生xmlHttpRequest封装版ajax--进入调试状态）</p>
+
+		<form id="advForm">
+			<p>客户：<select name="customerId">
+					<option value="110">客户1</option>
+					<option value="200">客户2</option>
+					<option value="300">客户3</option>
+				</select></p>
+			<p>价格：<input type="text" name="payAmount"></p>
+			<p><input type="button" id="btn" value="添加"></p>
+		</form>
+	</body>
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/ken.ajax.js"></script>
+
+	<script>
+		function addInfo() {}
+
+
+		var arrList = [];
+		var obj;
+		for (var i = 0; i < 3; i++) {
+			obj = {};
+			obj.commodityId = i;
+			obj.nums = 18 + i;
+			obj.price = 2 + i * 5;
+			arrList.push(obj);
+		}
+
+		//单纯的集合(json数组)
+		var main = arrList;
+		$.kenAjax({
+			method: 'post',
+			url: 'http://192.168.0.106:8080/qyxt/miniprogram/testlist',
+			data:main ,
+			sendType:"json",
+			// timeout:1,
+			success: function(data) {
+				console.log("成功--");
+				console.log(data);
+			},
+			fail:function(data){
+				console.log("失败--");
+				// console.log(data);
+			},
+			complete:function(data){
+				console.log("完成--");
+			}
+		});
+		
+	
+		//对象数组(json数组)
+		var main1 ={customerId:99,businessHall:82,orderNo:"812342816"}
+		main1.lstCommodity = JSON.parse(JSON.stringify(arrList));
+		//对象数组(json数组)
+		$.kenAjax({
+			method: 'post',
+			url: 'http://192.168.0.106:8080/qyxt/miniprogram/testobj',
+			data:main1 ,
+			sendType:"json",
+			// timeout:1,
+			success: function(data) {
+				console.log("成功--");
+				console.log(data);
+			},
+			fail:function(data){
+				console.log("失败--");
+				// console.log(data);
+			},
+			complete:function(data){
+				console.log("完成--");
+			}
+		});
+
+
+		//单纯的对象
+		$.kenAjax({
+			method: 'post',
+			url: 'http://192.168.0.106:8080/qyxt/miniprogram/testobj',
+			data:{customerId:99,businessHall:82,orderNo:"812342816","payPrice":21} ,
+			success: function(data) {
+				console.log("成功--");
+				console.log(data);
+			},
+			fail:function(data){
+				console.log("失败--");
+				// console.log(data);
+			},
+			complete:function(data){
+				console.log("完成--");
+			}
+		});
+
+		//单纯的对象(含数组)
+		var arr = [91, 28, 37];
+		$.kenAjax({
+			method: 'post',
+			url: 'http://192.168.0.106:8080/qyxt/miniprogram/testobj',
+			data: {
+				customerId: 99,
+				businessHall: 82,
+				orderNo: "812342816",
+				arr: arr
+			},
+			success: function(data) {
+				console.log("成功--");
+				console.log(data);
+			},
+			fail: function(data) {
+				console.log("失败--");
+				// console.log(data);
+			},
+			complete: function(data) {
+				console.log("完成--");
+			}
+		});
+
+		//表单序列化
+		$("#btn").click(function() {
+			var formstr = $("form").serialize();
+			console.log(formstr)
+			$.kenAjax({
+				method: 'post',
+				url: 'http://192.168.0.106:8080/qyxt/miniprogram/testobj',
+				data:formstr,
+				sendType:"form",//表单序列化类型
+				success: function(data) {
+					console.log("成功--");
+					console.log(data);
+				},
+				fail: function(data) {
+					console.log("失败--");
+					// console.log(data);
+				},
+				complete: function(data) {
+					console.log("完成--");
+				}
+			});
+		});
+	</script>
+</html>

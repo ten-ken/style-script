@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+		<p>--------------仿写ajax（原生xmlHttpRequest封装版ajax--进入调试状态）</p>
+
+
+		<form enctype="multipart/form-data" id="uploadForm" method="post" action="http://www.wofenshop.com/common/attachment/upload1.kcppc">
+			<input id="fileuploads" type="file" name="files[]" multiple="" onchange="changeV()">
+			<button>提交</button>
+		</form>
+		<div class="progress-bar">
+			进程:<div class="progress" id="progress"></div>
+		</div>
+	</body>
+
+	<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.7.2.min.js"></script>
+	<script src="ken.ajax.v1.1.js"></script>
+
+	<script>
+		function changeV() {
+			$.kenUploadAjax({
+				url: 'http://192.168.31.232:8080/index/upload',
+				el:"#fileuploads",
+				success: function(data) {
+					console.log("成功--");
+					console.log(data);
+				},
+				fail: function(data) {
+					console.log(data);
+					console.log("失败--");
+				},
+				progress:function(progress){
+					console.log(progress);
+				}
+			});
+			
+		}
+	</script>
+</html>
