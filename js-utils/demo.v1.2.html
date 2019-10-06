@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script src="js.util.v1.2.js"></script>
+	<script>
+		var set = new _Set();
+		var obj = {
+			name: "11"
+		};
+		set.add("11").add(obj).add("99").add(obj);
+		console.log(set.show());
+
+		var dic = new _Dictionary();
+		dic.add("zs", "18").add("lisa", "19").add("zs", "19");
+		dic.remove("lisa").remove("lisa").remove("lisa");
+		dic.showAll();
+		var show = dic.show();
+		console.log(dic.find("zs"));
+
+
+		var stack = new _Stack();
+		stack.push("100");
+		stack.push(obj);
+		stack.push("88");
+		
+		//查看栈顶的元素
+		console.log(stack.peek());
+		
+		//后人先出的循环栈内元素
+		while (stack.length() > 0) {
+			console.log(stack.pop());
+		}
+		
+	</script>
+</html>
