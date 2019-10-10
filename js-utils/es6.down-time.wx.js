@@ -88,4 +88,4 @@ export default class DownTime {
 	}
 }
 
-export {DownTime};
+//export {DownTime};
