@@ -4,10 +4,20 @@ var _DownTime= function (params) {
 	//2.对象里面的timeId很重要  是计时器id  用此可以停止计时器
 	//3.success方法 定义了 会返回 处理过的downList（集合或者单个对象）和 处理过的高度
 	//4. 默认设置的高度不合适 可以覆写 setHight（自定义函数内容）
-	params.downList = params.downList || [];
+	// params.downList = params.downList;
 	params.success = params.success || null;
 	params.timeId = 0;//计时器id  用此可以停止计时器
-	params.dataType = params.dataType==="Object"?"Object":"Array";
+	// params.dataType = params.constructor == Array ?"Object":"Array";
+	if(params.downList.constructor == Array){
+		params.dataType ="Array";
+	}
+	if(params.downList.constructor == Object){
+		params.dataType ="Object";
+	}
+	if(!params.dataType){
+		throw new Error("参数downList需为数组对象或者对象");
+	}
+	
 	params.setHight = params.setHight||this.setHight;
 	params.height = 0;
 	Object.assign(this,params);  
@@ -47,7 +57,7 @@ _DownTime.prototype = {
 		return param < 10 ? '0' + param : param;
 	},
 	setHight:function(len){//设置高度 给移动端适配 如默认单位高度是412 不合适 重写方法setHight 在函数参数里面
-		console.log(len);
+		// console.log(len);
 		return len * 412;
 	},
 	handSeckill:function(o,newTime,_this) {
@@ -64,19 +74,19 @@ _DownTime.prototype = {
 			// 获取天、时、分、秒
 			let day = parseInt(time / (60 * 60 * 24));
 			// console.log(time);
-			let hou = parseInt(time % (60 * 60 * 24) / 3600);
+			let hour = parseInt(time % (60 * 60 * 24) / 3600);
 			let min = parseInt(time % (60 * 60 * 24) % 3600 / 60);
 			let sec = parseInt(time % (60 * 60 * 24) % 3600 % 60);
 			obj = {
 				day: _this.timeFormat(day),
-				hou: _this.timeFormat(hou),
+				hour: _this.timeFormat(hour),
 				min: _this.timeFormat(min),
 				sec: _this.timeFormat(sec)
 			}
 		} else { //活动已结束，全部设置为'00'
 			obj = {
 				day: '00',
-				hou: '00',
+				hour: '00',
 				min: '00',
 				sec: '00'
 			}
