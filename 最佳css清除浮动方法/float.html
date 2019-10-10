@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+
+	<style type="text/css">
+		.div1 {
+			background: #EAEAEA;
+			border: 2px solid orange;
+		}
+
+		.div2 {
+			background: #36D7B7;
+			border: 1px solid red;
+			height: 100px;
+			margin-top: 10px
+		}
+
+		.myui-left {
+			float: left;
+		}
+
+		.myui-right {
+			float: right;
+		}
+
+		/*清除浮动代码---写在浮动div的父节点上面*/
+		
+		/* 方式一  任选一种 */
+		.myui-clear-float:after {
+			display: block;
+			clear: both;
+			content: "";
+			visibility: hidden;
+			height: 0
+		}
+		
+		/* 方式二 任选一种 */
+	/* 	.myui-clear-float:after, .myui-clear-float:before {content: ""; display: table;}
+		.myui-clear-float:after {clear: both;} */
+
+		.myui-clear-float {
+			*zoom: 1
+		}
+	</style>
+
+	<body>
+
+
+		<div>
+			<div class="div1 myui-clear-float">
+				<div class="myui-left" style="width:200px;height: 200px;background: #78A300;">左边内容</div>
+				<!-- <div class="myui-left" style="width:200px;height: 200px;background: #78A300;margin-left: 5px;">左边内容</div> -->
+				<div class="myui-right" style="width:150px;height: 80px;background: green">右边内容</div>
+			</div>
+			<div class="div2">
+				div2
+			</div>
+		</div>
+
+
+
+
+	</body>
+</html>
