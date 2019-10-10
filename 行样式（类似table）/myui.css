@@ -59,6 +59,8 @@ body {
 }
 
 /*清除浮动代码---写在浮动div的父节点上面*/
+
+/* 方式一  任选一种 */
 .myui-clear-float:after {
 	display: block;
 	clear: both;
@@ -67,8 +69,12 @@ body {
 	height: 0
 }
 
+/* 方式二 任选一种 */
+/* 	.myui-clear-float:after, .myui-clear-float:before {content: ""; display: table;}
+		.myui-clear-float:after {clear: both;} */
+
 .myui-clear-float {
-	zoom: 1
+	*zoom: 1
 }
 
 /*左右浮动  和 清除浮动 ---end */
