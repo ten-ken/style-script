@@ -49,4 +49,30 @@
     与上面类似 只是new的对象是DownTime 不是_DownTime 这部分需要注意
 
 
-ps： 该插件其他版本可以在style-script/js-utils 文件夹下面找
+旧版本
+
+down-time.html（页面）	
+es6.down-time.js（es6 普通版）	
+es6.down-time.wx.js	（es6 小程序版）
+util.down-time.js（普通版）
+
+
+| 参数       | 作用   |类型    |  默认值 |必填 |更新 |
+| --------   | -----:  |-----:  | :----:  |--- |-----|
+| downList  | 需要设置倒计时的对象或者json数组 |Array/Object  |  无  |是|旧|
+
+
+## 相关事件/函数
+
+| 事件       | 作用     |返回值类型    | 参数值 |必填 |
+| --------   | -----:  |-----:  | :----:  |--- |
+| setHight   | 设置高度 |Number|  无  |否|
+| success    | 处理结束后的回调 | void |   返回处理后的数据源（downList） 和高度值    |需要 时间通过这个显示倒计时 |
+
+引入方法参考上面（数据源需要adStartDate 、adEndDate 和 isStart 三个属性 分别代表开始时间 结束时间 和是否开始--isStart为0或1 ）
+
+效果展示：
+ 
+ <p><image src="https://github.com/ten-ken/image/blob/master/relate_img/down-time.png?raw=true"/></p>
+
+
