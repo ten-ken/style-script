@@ -36,9 +36,9 @@
 			// setHight:function(){
 			// 	return 3000;
 			// },
-			// success: function(data, calHg) {
-          //伪代码 返回结果会带入isStart  未开始/已开始 0,1
-			   	$(".placeholder").eq(0).html(data.downTimeArr.day + "天");
+			 success: function(data, calHg) {
+          			//伪代码 返回结果会带入isStart  未开始/已开始 0,1
+			   	 $(".placeholder").eq(0).html(data.downTimeArr.day + "天");
 			 	  $(".placeholder").eq(1).html(data.downTimeArr.hour + "时");
 			 	  $(".placeholder").eq(2).html(data.downTimeArr.min + "分");
 			 	  $(".placeholder").eq(3).html(data.downTimeArr.sec + "秒");
