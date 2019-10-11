@@ -25,7 +25,7 @@ import java.util.regex.Pattern;
  * @version 匠桥ERP系统V1.0
  * @date 2019/2/13 0013 下午 15:23
  */
-public class RegExUtil {
+public class RegUtil {
 
     //  [\w-] 就是匹配任意字母和符号- (减号)
     //  \. = 就是匹配符号. (点)
