@@ -49,7 +49,7 @@
 			var item = {};
 			var _this = this.$element;
 			var _settings = this.settings;
-			if (typeof(_settings.resultType) == 'undefined' || _settings.resultType == 'string') { //默认为字符串
+			if (typeof(_settings.resultType) == 'undefined' || _settings.resultType == 'String') { //默认为字符串
 				return $(_this.selector + " :input,textarea,select").not(".need_ingore").serialize();
 			}
 			var arr = $(_this.selector + " :input,textarea,select").not(".need_ingore").serializeArray();
