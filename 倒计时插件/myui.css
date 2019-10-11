@@ -1,0 +1,50 @@
+			body {
+				margin: 0;
+				padding: 0;
+			}
+
+			.myui-flex {
+				display: -webkit-box;
+				display: -webkit-flex;
+				display: flex;
+				width: 100%;
+			}
+
+			.myui-flex-item {
+				-webkit-box-flex: 1;
+				-webkit-flex: 1;
+				flex: 1;
+			}
+
+			.flex-1 {
+				width: 10%;
+			}
+
+			.flex-2 {
+				width: 20%;
+			}
+
+
+			.flex-3 {
+				width: 30%;
+			}
+
+			.flex-4 {
+				width: 40%;
+			}
+
+			.flex-5 {
+				width: 50%;
+			}
+
+			.placeholder {
+				border: 1px solid #fff;
+				background-color: #f1f1f1;
+				height: 2.1em;
+				line-height: 2.1em;
+				text-align: center;
+				color: #cfcfcf;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
