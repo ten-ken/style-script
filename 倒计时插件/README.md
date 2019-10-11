@@ -47,3 +47,6 @@
 ### 引入 <div style="color:blue">	import DownTime from '/../../utils/es6.down-time.js';		</div>
 
     与上面类似 只是new的对象是DownTime 不是_DownTime 这部分需要注意
+
+
+ps： 该插件其他版本可以在style-script/js-utils 文件夹下面找
