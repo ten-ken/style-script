@@ -1,17 +1,10 @@
 /******************************************************************************
- *
- * 版权所有：安徽匠桥电子信息有限公司
- *
- ******************************************************************************
- * 注意：本内容仅限于安徽匠桥电子信息有限公司内部使用，禁止转发
- *****************************************************************************/
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
  * <ul>
- * <li>Title: 匠桥ERP系统-RegExUtil</li>
  * <li>Description: TODO </li>
  * <li>Copyright: Copyright (c) 2018</li>
  * <li>Company: http://www.jiangqiaotech.com/</li>
@@ -21,7 +14,7 @@ import java.util.regex.Pattern;
  *     <value>https://www.cnblogs.com/lzq198754/p/5780340.html</value>
  * </url>
  *
- * @author swc
+ * @author ken
  * @version 匠桥ERP系统V1.0
  * @date 2019/2/13 0013 下午 15:23
  */
@@ -80,7 +73,7 @@ public class RegUtil {
      * @param reg  正则
      * @param str  匹配的字符串
      * @return: java.util.regex.Matcher
-     * @author: swc
+     * @author: ken
      * @date: 2019/2/14 0014 下午 16:14
     */
     public static Matcher setPublicConfig(String reg, String str) {
@@ -93,7 +86,7 @@ public class RegUtil {
 //     * 功能描述: 验证纯数字(无正负号)
 //     * @param str
 //     * @return: boolean
-//     * @author: swc
+//     * @author: ken
 //     * @date: 2019/2/13 0013 下午 15:43
 //    */
 //    public static boolean getChunNumber(String str){
@@ -106,7 +99,7 @@ public class RegUtil {
      * 功能描述: 邮编验证
      * @param str
      * @return: boolean
-     * @author: swc
+     * @author: ken
      * @date: 2019/2/13 0013 下午 15:49
     */
     public static boolean checkPostcodes(String str){
@@ -119,7 +112,7 @@ public class RegUtil {
      * 功能描述: 汉字验证(无英文 @/&/#等特殊符号  中文逗号分号可以有)
      * @param str
      * @return: boolean
-     * @author: swc
+     * @author: ken
      * @date: 2019/2/13 0013 下午 15:50
     */
     public static boolean checkChineseCharacters(String str){
@@ -132,7 +125,7 @@ public class RegUtil {
      * 功能描述: 验证qq号码
      * @param str
      * @return: boolean
-     * @author: swc
+     * @author: ken
      * @date: 2019/2/13 0013 下午 16:03
     */
     public static boolean checkQQ(String str){
@@ -146,7 +139,7 @@ public class RegUtil {
      * @param str
      * @param reg
      * @return: boolean
-     * @author: swc
+     * @author: ken
      * @date: 2019/2/13 0013 下午 16:27
     */
     public static boolean checkEmail(String str,String reg){
@@ -158,7 +151,7 @@ public class RegUtil {
      * 功能描述: 这部分只验证手机号码长度和正常的号段
      * @param str
      * @return: boolean
-     * @author: swc
+     * @author: ken
      * @date: 2019/2/13 0013 下午 16:35
     */
     public static boolean checkPhone(String str){
@@ -183,7 +176,7 @@ public class RegUtil {
      * 功能描述: 验证是否是url
      * @param str
      * @return: boolean
-     * @author: swc
+     * @author: ken
      * @date: 2019/2/13 0013 下午 17:20
     */
     public static boolean urlCheck(String str){
@@ -197,7 +190,7 @@ public class RegUtil {
      * 功能描述: 验证是否是正整数
      * @param str
      * @return: boolean
-     * @author: swc
+     * @author: ken
      * @date: 2019/2/14 0014 下午 16:35
     */
     public static boolean positiveIntegerCheck(String str){
@@ -210,7 +203,7 @@ public class RegUtil {
      * 功能描述: 验证是否是数字
      * @param str
      * @return: boolean
-     * @author: swc
+     * @author: ken
      * @date: 2019/2/14 0014 下午 16:35
      */
     public static boolean numberCheck(String str){
@@ -224,7 +217,7 @@ public class RegUtil {
      * 功能描述: 替换字符串中空格、制表符、换页符的其中任意一个 （去内容的空格和换行）
      * @param str
      * @return: java.lang.String
-     * @author: swc
+     * @author: ken
      * @date: 2019/2/14 0014 下午 16:22
     */
     public static String replaceTrim(String str){
@@ -237,7 +230,7 @@ public class RegUtil {
      * @param str
      * @param replace 替换后的内容
      * @return: java.lang.String
-     * @author: swc
+     * @author: ken
      * @date: 2019/2/14 0014 下午 16:29
     */
     public static String replaceNumber(String str,String replace){
