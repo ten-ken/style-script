@@ -25,10 +25,10 @@
     var downList = {
 			adStartDate: "2019-10-09 11:01:24",
 			adEndDate: "2019-10-11 20:31:28",
-			isStart: 1
+			isStart: 1 //此此属性可不要
 		};
 
-		//isStart 是未开始/已开始 0,1
+		//isStart 未开始/已开始 0,1
 		var dt = new _DownTime({
 			downList: downList,
 			start:'adStartDate',
@@ -37,7 +37,7 @@
 			// 	return 3000;
 			// },
 			// success: function(data, calHg) {
-          //伪代码
+          //伪代码 返回结果会带入isStart  未开始/已开始 0,1
 			   	$(".placeholder").eq(0).html(data.downTimeArr.day + "天");
 			 	  $(".placeholder").eq(1).html(data.downTimeArr.hour + "时");
 			 	  $(".placeholder").eq(2).html(data.downTimeArr.min + "分");
