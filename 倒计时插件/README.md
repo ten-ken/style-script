@@ -28,7 +28,7 @@
 			isStart: 1
 		};
 
-		//isStart 是未开始/已开始/未开始 0,1
+		//isStart 是未开始/已开始 0,1
 		var dt = new _DownTime({
 			downList: downList,
 			start:'adStartDate',
