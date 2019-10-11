@@ -20,7 +20,7 @@
 | contentType    | 请求内容类型 | 编译后台正常的解析内容  |'application/x-www-form-urlencoded;charset=utf-8'|   |否 |
 | sendType    | 传递数据d的类型 | object/json/form（表单序列化的字符串） | 通用ajax默认类型为对象 |   |否  |
 | progress    | 上传进度的回调方法 |  | 返回进度值 uploadAjax方法专用参数|   |否  |
-| el    | 上传控件的id或者class名称为#id 或者.class |  String uploadAjax方法专用参数| | 默认为#fileupload  |否 |
+| el    | 上传控件的id或者class名称为#id 或者.class |  String uploadAjax方法专用参数| uploadAjax方法专用参数| 默认为#fileupload  |否 |
 | size    | 单个文件的上传大小 | 单位kb |  uploadAjax方法专用参数|   |否  |
 | maxNums    | 最多上传数量 | 个 |  uploadAjax方法专用参数| 默认为1 单文件上传  |否  |
 | type    | 上传文件的类型 | all(所有文件)/image(图片) /video(影音) /excel(excel) /word /powerpoint /zip(压缩文件 rar也支持) |  uploadAjax方法专用参数|   |否  |
