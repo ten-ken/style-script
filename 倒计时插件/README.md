@@ -1,4 +1,4 @@
-## 引入对应的js
+## 引入对应的v1.1版本 js
 
 ## 相关参数
 
@@ -55,7 +55,9 @@ down-time.html（页面）
 es6.down-time.js（es6 普通版）	
 es6.down-time.wx.js	（es6 小程序版）
 util.down-time.js（普通版）
+myui.css
 
+js 引入旧版本其中一个即可（非小程序 不要引入es6.down-time.wx.js 这个版本）
 
 | 参数       | 作用   |类型    |  默认值 |必填 |更新 |
 | --------   | -----:  |-----:  | :----:  |--- |-----|
