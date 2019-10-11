@@ -1,4 +1,4 @@
-util.down-time.v1.1.jsvar _DownTime= function (params) {
+var _DownTime= function (params) {
 	//注意：1. 后台返回的集合单个对象 或者 后台返回的对象
 	 //里面的属性必须要有adEndDate（开始时间） 和 adStartDate(结束时间) 且为字符串
 	//2.对象里面的timeId很重要  是计时器id  用此可以停止计时器
