@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/themes/default/easyui.css">
+		<link rel="stylesheet" type="text/css" href="css/themes/icon.css">
+		<script type="text/javascript" src="js/easyui/jquery.min.js"></script>
+		<script type="text/javascript" src="js/easyui/jquery.easyui.min.js"></script>
+	</head>
+	<body>
+		<div id="tb">
+			<a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true" onclick="_append()"></a>
+			<a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-remove',plain:true" onclick="_removeit()"></a>
+			<a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-save',plain:true" onclick="_accept()"></a>
+		</div>
+		<table class="easyui-datagrid" id="dg">
+		</table>
+
+
+	</body>
+	<script src="js/easyui-datagrid.v1.0.js"></script>
+	<script src="js/easyui/easyui-lang-zh_CN.js"></script>
+
+	<script>
+		//组合下拉的配置
+		var combogridColums = {
+			idField: 'itemid',
+			textField: 'productname',
+			columns: [
+				[{
+						field: 'itemid',
+						title: 'Item ID',
+						width: 80,
+					},
+					{
+						field: 'productname',
+						title: 'Product',
+						width: 120
+					},
+					{
+						field: 'listprice',
+						title: 'List Price',
+						title: 'List Price',
+						width: 80,
+						align: 'right'
+					},
+					{
+						field: 'unitcost',
+						title: 'Unit Cost',
+						width: 80,
+						align: 'right'
+					},
+					{
+						field: 'attr1',
+						title: 'Attribute',
+						width: 200
+					},
+					{
+						field: 'status',
+						title: 'Status',
+						width: 60,
+						align: 'center'
+					}
+				]
+			]
+		};
+
+
+		//主体行的配置
+		var columns = [
+			[{
+					field: 'itemid',
+					width: 80,
+					formatter: function(value, row) {
+						return row.itemid;
+					},
+					title: "itemid",
+					editor: {
+						type: 'combogrid',
+						options: combogrid()
+					}
+				},
+				{
+					title: 'listprice',
+					field: 'listprice',
+					width: 80,
+					align: 'right',
+					formatter: function(value, row) {
+						return row.listprice;
+					},
+					editor: {
+						type: 'combobox',
+						options: combobox()
+					}
+				},
+				{
+					field: 'unitcost',
+					width: 80,
+					align: 'right',
+					title: "unitcost",
+				},
+				{
+					field: 'attr1',
+					width: 200,
+					title: "attr1"
+				},
+				{
+					field: 'status',
+					align: 'center',
+					title: "Status"
+				},
+			]
+		];
+
+		var easyGrid = new EasyGrid({
+			toolbar: "#tb", //操作工具条
+			fitColumns: true,
+			el: "#dg", //table id---***作者新增属性
+			url: 'json/data.json', //后台访问地址
+			// autoWidth:true,//***作者新增属性  宽度自动--autoWidth设置为true 会影响到fitColumns 宽度铺满 单元格铺满
+			actionConfig: { //***作者新增属性  操作行
+				// need: true,
+				location: 0, //-1是最后
+				field: 'action',
+				width: 180,
+				align: 'center',
+				title: "action",
+				fixed: true, //冻结行  此部分会排在行属性前面 由此属性location以冻结列为准
+				// formatter:formatAction//不写按默认的来  写了按你的样式来
+			},
+			columns: columns,
+			clickCellEdit: true,
+			//onEndEdit 已默认 需要修改重新onEndEdit方法
+			rownumbers: true,
+			showFooter: true
+		});
+
+
+		function combobox() {
+			var url = 'json/combobox_data.json';
+			return {
+				url: url,
+				method: 'get',
+				valueField: 'id',
+				textField: 'listprice',
+				required: true,
+				keyHandler: {
+					query: function(keyword) {},
+					up: function(keyword) {
+
+					},
+					down: function(keyword) {},
+					enter: function(keyword) {
+						//coding
+					}
+				}
+			}
+		}
+
+		function combogrid() {
+			var url = 'json/data.json';
+			return {
+				panelWidth: 320,
+				panelMinWidth: '50%',
+				idField: 'itemid',
+				textField: 'itemids',
+				mode: 'remote',
+				url: url,
+				method: 'get',
+				required: true,
+				striped: true,
+				pageSize: 100,
+				pageList: [100, 200, 300],
+				pagination: true,
+				columns: [
+					[{
+							field: 'itemid',
+							title: '计划主键',
+							width: 100
+						},
+						{
+							field: 'listprice',
+							title: '价格',
+							width: 180
+						},
+					]
+				],
+				keyHandler: {
+					query: function(keyword) {},
+					up: function(keyword) {
+
+					},
+					down: function(keyword) {},
+					enter: function(keyword) {
+						//coding
+					}
+				}
+			}
+		}
+	</script>
+
+</html>
