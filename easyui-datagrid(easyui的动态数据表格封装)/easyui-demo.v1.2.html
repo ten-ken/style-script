@@ -49,7 +49,7 @@
 	</body>
 	
 	<script type="text/javascript" src="js/easyui/datagrid-filter.js"></script>
-	<script src="js/easyui-datagrid.js"></script>
+	<script src="js/easyui-datagrid.v1.2.js"></script>
 	<script src="js/easyui/easyui-lang-zh_CN.js"></script>
 
 	<script>
@@ -132,7 +132,6 @@
 				keyHandler: {
 					query: function(keyword) {},
 					up: function(keyword) {
-
 					},
 					down: function(keyword) {},
 					enter: function(keyword) {
@@ -141,7 +140,6 @@
 				}
 			}
 		}
-
 		function combobox() {
 			var url = 'json/combobox_data.json';
 			return {
@@ -153,7 +151,6 @@
 				keyHandler: {
 					query: function(keyword) {},
 					up: function(keyword) {
-
 					},
 					down: function(keyword) {},
 					enter: function(keyword) {
@@ -162,11 +159,12 @@
 				}
 			}
 		}
-
 		var easyGrid = new EasyGrid({
+			collapsible:true,
 			filterBtnIconCls: 'icon-filter',
 			toolbar: "#tb", //操作工具条
 			fitColumns: true,
+			filterMenu:false,//***作者新增属性 设置默认的语句菜单
 			el: "#dg", //table id---***作者新增属性
 			url: 'json/data.json', //后台访问地址
 			// autoWidth:true,//***作者新增属性  宽度自动--autoWidth设置为true 会影响到fitColumns 宽度铺满 单元格铺满
@@ -187,7 +185,8 @@
 			showFooter: true,
 			//后面两项需要 引入datagrid-filter.js
 			enableFilter:true,//***作者新增属性  开启过滤器
-			filterConfig:filterConfig() //***作者新增属性  过滤器的配置
+			filterConfig:filterConfig(), //***作者新增属性  过滤器的配置
+			// onHeaderContextMenu:null
 		});
 	</script>
 

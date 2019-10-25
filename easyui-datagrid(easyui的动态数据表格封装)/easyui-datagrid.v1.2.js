@@ -53,6 +53,7 @@ EasyGrid.prototype = {
 			pageList: [10, 20, 50, 100],
 			frozenColumns: [],
 			columns: [],
+			filterMenu:true,
 			onBeforeEdit: function(index, row) {
 				$(this).datagrid('updateRow', {
 					index: index,
@@ -117,19 +118,6 @@ EasyGrid.prototype = {
 					}
 				}
 			},
-			//语境菜单  展示菜单部分
-			onHeaderContextMenu: function(e, field) {
-				// console.log(easyGrid._default.createColumnMenu);
-				e.preventDefault();
-				if (!_cmenu_) {
-					_createColumnMenu();
-					// easyGrid._default.createColumnMenu
-				}
-				_cmenu_.menu('show', {
-					left: e.pageX,
-					top: e.pageY
-				});
-			}
 		}
 		return defaultConfig;
 	},
@@ -169,9 +157,14 @@ EasyGrid.prototype = {
 		if (width_ > 0 && this._options.autoWidth) {
 			this._options.width = width_ + 10;
 		}
-
+		//是否默认的点击单元格编辑事件
 		if (_options_.clickCellEdit) {
-			_options_.onClickCell = this._onClickCell;
+			this._default.onClickCell = this._onClickCell;
+		}
+		//是否开启语句菜单
+		console.log(_options_.filterMenu);
+		if(_options_.filterMenu!=false && this._default.filterMenu){
+			this._default.onHeaderContextMenu =this.onHeaderContextMenu;
 		}
 
 		this._options.frozenColumns = frozenColumns;
@@ -185,13 +178,13 @@ EasyGrid.prototype = {
 		}
 		var op = $(_newOptions.el).datagrid(_newOptions);
 
-	   var arr = [{
+		var arr = [{
 			field: 'unitcost',
 			type: 'numberbox',
 			op: ['equal', 'notequal', 'less', 'greater']
 		}];
-		if( _newOptions.enableFilter){
-			 op.datagrid('enableFilter', _newOptions.filterConfig||[]);
+		if (_newOptions.enableFilter) {
+			op.datagrid('enableFilter', _newOptions.filterConfig || []);
 		}
 	},
 	formatAction: function(value, row, index) {
@@ -238,7 +231,16 @@ EasyGrid.prototype = {
 				</div>`;
 	},
 	//创建语境菜单
-
+	onHeaderContextMenu: function(e, field) {
+		e.preventDefault();
+		if (!_cmenu_) {
+			_createColumnMenu();
+		}
+		_cmenu_.menu('show', {
+			left: e.pageX,
+			top: e.pageY
+		});
+	}
 }
 
 /************end***************/
