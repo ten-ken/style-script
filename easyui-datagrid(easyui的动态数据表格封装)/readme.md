@@ -39,6 +39,8 @@
 			//后面两项需要 引入datagrid-filter.js
 			enableFilter:true,//***作者新增属性  开启过滤器
 			filterConfig:filterConfig(), //***作者新增属性  过滤器的配置
+			filterIngores:['action','itemid','productid']//***作者新增属性  忽略过滤的字段
+									//数组  里面的列的字段名称
 		});
 ```
 | 参数       | 作用   |类型    |  默认值 |必填 |版本|
@@ -51,7 +53,7 @@
 | enableFilter    | 是否开启列的过滤器（查询器） | Array  |  []   |否（需要 引入datagrid-filter.js） | 1.2+|
 | filterConfig    | 列的过滤器配置（enableFilter为true才生效） | Object  |  [{}]   |否 （需要 引入datagrid-filter.js）|1.2+|
 | fixed    | 是否固定 | 布尔  | 否  |否（为columns里面的column的扩展属性 用于固定列 冻结列 不需要在写frozenColumns配置 当然也可以写 这个  需要移除fixed避免冲突） | |
-
+| filterIngores    | 忽略过滤的字段（enableFilter为true才生效） | 数组（里面的列的字段名称）  |  []   |否 （需要 引入datagrid-filter.js）|1.2+|
 
 
 | 方法       | 参数   |作用    |  demo |必填 |
