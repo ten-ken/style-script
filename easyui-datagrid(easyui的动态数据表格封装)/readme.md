@@ -13,27 +13,52 @@
 
 
 ```
-  var tables = $("#listTable").serializeSearch({'bind': { able: false}});//封装格式化 多table部分  
+  	var easyGrid = new EasyGrid({
+			collapsible:true,
+			filterBtnIconCls: 'icon-filter',
+			toolbar: "#tb", //操作工具条
+			fitColumns: true,
+			// filterMenu:false,//***作者新增属性 设置默认的语句菜单
+			el: "#dg", //table id---***作者新增属性
+			url: 'json/data.json', //后台访问地址
+			// autoWidth:true,//***作者新增属性  宽度自动--autoWidth设置为true 会影响到fitColumns 宽度铺满 单元格铺满
+			actionConfig: { //***作者新增属性  操作行
+				// need: true,
+				location: 0, //-1是最后
+				field: 'action',
+				width: 180,
+				align: 'center',
+				title: "action",
+				fixed: true, //冻结行  此部分会排在行属性前面 由此属性location以冻结列为准
+				// formatter:formatAction//不写按默认的来  写了按你的样式来
+			},
+			// columns: columns,
+			clickCellEdit: true,
+			rownumbers: true,
+			showFooter: true,
+			//后面两项需要 引入datagrid-filter.js
+			enableFilter:true,//***作者新增属性  开启过滤器
+			filterConfig:filterConfig(), //***作者新增属性  过滤器的配置
+		});
 ```
 | 参数       | 作用   |类型    |  默认值 |必填 |
 | --------   | -----:  |-----:  | :----:  |--- |
 |  el  | 绑定的id |String  |   '' (例如上面的‘#listTable’)   |是|
-| bind     | 绑定封装后的对象属性 |Object  |  'bind': { able: true}  |是 |
-| able    | bind下的属性 | Boolean  |  true   |否 |
-| filter    | 过滤不要的封装字段 | Array  |  []   |否 |
-
+| filterMenu     | 是否开启语境菜单(详情看easyui demo) | 布尔 |  true|否 |
+| autoWidth    | 是否自动宽度 | 布尔  |  false   |否 |
+| actionConfig    | 操作列的配置属性（下面会针对详解） | Object  |  {}  |否 |
+| clickCellEdit    | 是否开启点击单元格编辑事件 | 布尔  |  false  |否 |
+| enableFilter    | 是否开启列的过滤器（查询器） | Array  |  []   |否（需要 引入datagrid-filter.js） |
+| filterConfig    | 列的过滤器配置（enableFilter为true才生效） | Object  |  [{}]   |否 （需要 引入datagrid-filter.js）|
+| fixed    | 是否固定 | 布尔  | 否  |否（为columns里面的column的扩展属性 用于固定列 冻结列 不需要在写frozenColumns配置 当然也可以写 这个  需要移除fixed避免冲突） |
 
 
 ```
  ##var mains = $("#mainContent").serializeSearch({'resultType':"object"});//封装格式化 多搜索区域 将其变成url后参数或者整个对象
 ```
-| 参数       | 作用   |类型    |  默认值 |必填 |
+| 方法       | 参数   |作用    |  demo |必填 |
 | --------   | -----:  |-----:  | :----:  |--- |
-|  el  | 绑定的id |String  |   '' (例如上面的‘#mainContent’)   |是|
-| bind     | 绑定封装后的对象属性 |Object  |  'bind': { able: true}  |否|
-| able    | bind下的属性 | Boolean  |  true   |否 |
-| filter    | 过滤不要的封装字段 | Array  |  []   |否 |
-| resultType    | 结果类型 | Oject/String(默认)  |  实例score=100&age=10 |否 |
+| onEndEdit    | 编辑后事件 | 用于编辑后的处理事件（已内置 可重写覆盖）  |   | 否|
 
 
 
