@@ -53,14 +53,20 @@
 | fixed    | 是否固定 | 布尔  | 否  |否（为columns里面的column的扩展属性 用于固定列 冻结列 不需要在写frozenColumns配置 当然也可以写 这个  需要移除fixed避免冲突） |
 
 
-```
- ##var mains = $("#mainContent").serializeSearch({'resultType':"object"});//封装格式化 多搜索区域 将其变成url后参数或者整个对象
-```
+
 | 方法       | 参数   |作用    |  demo |必填 |
 | --------   | -----:  |-----:  | :----:  |--- |
 | onEndEdit    | 编辑后事件 | 用于编辑后的处理事件（已内置 可重写覆盖）  |   | 否|
 
-
-
-
-这个目的在于传递参数或对象时 不需要挨个$（"xx"）.val()的方式 同时也避免了form的序列化方法把一些隐藏域传入 造成不必要的麻烦。
+```
+ ##actionConfig的详细参数
+```
+| 参数       | 作用   |类型    |  默认值 |必填 |
+| --------   | -----:  |-----:  | :----:  |--- |
+|  need  | 是否需要开启（false 为开启操作列） |boolean  |  false   |否|
+| location     | 操作列的位置| 数字（-1为生成在最后） |  0|否 |
+| field    | 同easyui里面column的属性field| String  | ''   |否|
+| width    | 同easyui里面column的属性width | String  | ''   |否|
+| align    | 同easyui里面column的属性align| String  | ''   |否|
+| title    | 同easyui里面column的属性title | String  | ''   |否|
+| fixed    | 是否固定 | 布尔  | 否  |否（为columns里面的column的扩展属性 用于固定列 冻结列 不需要在写frozenColumns配置 当然也可以写 这个  需要移除fixed避免冲突） |
