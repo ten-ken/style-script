@@ -65,7 +65,7 @@
 | --------   | -----:  |-----:  | :----:  |--- |
 |  need  | 是否需要开启（false 为开启操作列） |boolean  |  false   |否|
 | location     | 操作列的位置| 数字（-1为生成在最后） |  0|否 |
-| field    | 同easyui里面column的属性field| String  | ''   |否|
+| field    | 同easyui里面column的属性field| String  | ''   |是|
 | width    | 同easyui里面column的属性width | String  | ''   |否|
 | align    | 同easyui里面column的属性align| String  | ''   |否|
 | title    | 同easyui里面column的属性title | String  | ''   |否|
