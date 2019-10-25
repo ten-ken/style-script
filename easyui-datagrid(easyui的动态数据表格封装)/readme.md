@@ -70,3 +70,8 @@
 | align    | 同easyui里面column的属性align| String  | ''   |否|
 | title    | 同easyui里面column的属性title | String  | ''   |否|
 | fixed    | 是否固定 | 布尔  | 否  |否（为columns里面的column的扩展属性 用于固定列 冻结列 不需要在写frozenColumns配置 当然也可以写 这个  需要移除fixed避免冲突） |
+
+## 效果图展示
+<p style="height:200px"><image src="https://github.com/ten-ken/image/blob/master/relate_img/easyui-datagrid-demo1.png?raw=true"/></p>
+
+<p style="height:200px"><image src="https://github.com/ten-ken/image/blob/master/relate_img/easyui-datagrid-demo2.png?raw=true"/></p>
