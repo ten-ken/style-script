@@ -41,16 +41,16 @@
 			filterConfig:filterConfig(), //***作者新增属性  过滤器的配置
 		});
 ```
-| 参数       | 作用   |类型    |  默认值 |必填 |
-| --------   | -----:  |-----:  | :----:  |--- |
-|  el  | 绑定的id |String  |   '' (例如上面的‘#listTable’)   |是|
-| filterMenu     | 是否开启语境菜单(详情看easyui demo) | 布尔 |  true|否 |
-| autoWidth    | 是否自动宽度 | 布尔  |  false   |否 |
-| actionConfig    | 操作列的配置属性（下面会针对详解） | Object  |  {}  |否 |
-| clickCellEdit    | 是否开启点击单元格编辑事件 | 布尔  |  false  |否 |
-| enableFilter    | 是否开启列的过滤器（查询器） | Array  |  []   |否（需要 引入datagrid-filter.js） |
-| filterConfig    | 列的过滤器配置（enableFilter为true才生效） | Object  |  [{}]   |否 （需要 引入datagrid-filter.js）|
-| fixed    | 是否固定 | 布尔  | 否  |否（为columns里面的column的扩展属性 用于固定列 冻结列 不需要在写frozenColumns配置 当然也可以写 这个  需要移除fixed避免冲突） |
+| 参数       | 作用   |类型    |  默认值 |必填 |版本|
+| --------   | -----:  |-----:  | :----:  |--- |--- |
+|  el  | 绑定的id |String  |   '' (例如上面的‘#listTable’)   |是||
+| filterMenu     | 是否开启语境菜单(详情看easyui demo) | 布尔 |  true|否 | |
+| autoWidth    | 是否自动宽度 | 布尔  |  false   |否 ||
+| actionConfig    | 操作列的配置属性（下面会针对详解） | Object  |  {}  |否 | |
+| clickCellEdit    | 是否开启点击单元格编辑事件 | 布尔  |  false  |否 || |
+| enableFilter    | 是否开启列的过滤器（查询器） | Array  |  []   |否（需要 引入datagrid-filter.js） | 1.2+|
+| filterConfig    | 列的过滤器配置（enableFilter为true才生效） | Object  |  [{}]   |否 （需要 引入datagrid-filter.js）|1.2+|
+| fixed    | 是否固定 | 布尔  | 否  |否（为columns里面的column的扩展属性 用于固定列 冻结列 不需要在写frozenColumns配置 当然也可以写 这个  需要移除fixed避免冲突） | |
 
 
 
