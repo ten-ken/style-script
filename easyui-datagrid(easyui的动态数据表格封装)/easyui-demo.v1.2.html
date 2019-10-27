@@ -87,15 +87,15 @@
 					}],
 					onChange: function(value) {
 						if (value == '') {
-							dg.datagrid('removeFilterRule', 'status');
+							$("#dg").datagrid('removeFilterRule', 'status');
 						} else {
-							dg.datagrid('addFilterRule', {
+							$("#dg").datagrid('addFilterRule', {
 								field: 'status',
 								op: 'equal',
 								value: value
 							});
 						}
-						dg.datagrid('doFilter');
+						$("#dg").datagrid('doFilter');
 					}
 				}
 			}];
