@@ -16,6 +16,51 @@ String.prototype.isNotBlank = function() {
 	return false;
 }
 
+String.prototype.isNotEmpty = function() {
+	if (this !== null && this !== undefined && this !== '') {
+		return true;
+	}
+	return false;
+}
+
+String.prototype.isNotBlank = function() {
+	var _param = this.trim();
+	if (_param !== null && _param !== undefined && _param !== '') {
+		return true;
+	}
+	return false;
+}
+
+
+function isNotEmpty(param){
+	let type = typeof param;
+	if("string"===type){
+		return param.isNotEmpty();
+	}else if("object"===type){
+		if(param.constructor === Array){
+			return param.length>0;
+		}
+		return JSON.stringify(param)!== "{}";
+	}else if("undefined"===type){
+		return false;
+	}
+	return true;
+}
+
+function isNotBlank(param){
+	let type = typeof param;
+	if("string"===type){
+		return param.isNotBlank();
+	}else if("object"===type){
+		if(param.constructor === Array){
+			return param.length>0;
+		}
+		return JSON.stringify(param)!== "{}";
+	}else if("undefined"===type){
+		return false;
+	}
+	return true;
+}
 
 
 
