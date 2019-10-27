@@ -1,3 +1,24 @@
+
+//===============================String==================================//
+
+String.prototype.isNotEmpty = function() {
+	if (this !== null && this !== undefined && this !== '') {
+		return true;
+	}
+	return false;
+}
+
+String.prototype.isNotBlank = function() {
+	var _param = this.trim();
+	if (_param !== null && _param !== undefined && _param !== '') {
+		return true;
+	}
+	return false;
+}
+
+
+
+
 //===============================Array==================================//
 /** 
  * @description 单纯的数组去重
