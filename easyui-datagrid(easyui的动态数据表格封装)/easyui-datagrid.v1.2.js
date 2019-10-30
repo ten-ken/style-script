@@ -1,9 +1,10 @@
 var _editIndex = undefined;
 var _cmenu_;
 var _table_id__ = "#dg";
-
+var e_this_ ;
 
 var EasyGrid = function(options) {
+	e_this_ = this;
 	this._options = options;
 	this._default = this.defaultConfig();
 	let _options = this._options;
@@ -188,6 +189,11 @@ EasyGrid.prototype = {
 		}
 	},
 	formatAction: function(value, row, index) {
+		let len_first =Object.keys(e_this_._options.columns[0][0]).length;
+		let len_cur =Object.getOwnPropertyNames(row).length;
+		if(len_first>len_cur){
+			return '';
+		}
 		if (row.editing) {
 			var s = '<a href="#" onclick="_saverow(this)">完成</a> ';
 			var c = '<a href="#" onclick="_cancelrow(this)">取消</a>';
