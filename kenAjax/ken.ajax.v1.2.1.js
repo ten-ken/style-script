@@ -184,7 +184,7 @@
 		for (var ind=0; ind<data[0].files.length;ind++) {
 			//走这个接口(外部类型函数 未定义 走的还是下面的这个部分 与 尺寸的限制这部分的代码不相干 不冲突)
 			fileType = data[0].files[ind].type;
-			if (data[0].files[ind].type!= "all" && !param.definedTypeError && fileType.indexOf(param.type)==-1){
+			if (param.type!= "all" && !param.definedTypeError && fileType.indexOf(param.type)==-1){
 				errTypeData.push("第"+(ind+1)+"个文件不是"+tip);
 				continue;
 			}
