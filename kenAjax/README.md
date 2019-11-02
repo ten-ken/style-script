@@ -201,7 +201,9 @@
 				type:"zip",//上传文件格式为压缩文件 默认是all 即任意格式
 				size：1024*20,//单个文件最大20M 默认是10M
 				maxNums:5,//默认是1 代表单文件上传
-				//error：function(){ //coding },真的文件类型错误的重写/覆写  此部分写了type就无意义
+				error:function(msg){
+				},//错误信息的回调
+				//definedTypeError：function(file){ //coding },针对文件类型错误的重写/覆写  此部分写了type就无意义
 				success: function(data) {
 					console.log("成功--");
 					console.log(data);
