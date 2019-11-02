@@ -197,7 +197,11 @@
     //上传ajax
     $.kenUploadAjax({
 				url: 'http://192.168.31.232:8080/index/upload',
-				el:"#fileuploads",
+				el:"#fileuploads",//上传控件的id或者class名称为#id 或者.class 默认为#fileupload
+				type:"zip",//上传文件格式为压缩文件 默认是all 即任意格式
+				size：1024*20,//单个文件最大20M 默认是10M
+				maxNums:5,//默认是1 代表单文件上传
+				//error：function(){ //coding },真的文件类型错误的重写/覆写  此部分写了type就无意义
 				success: function(data) {
 					console.log("成功--");
 					console.log(data);
