@@ -1,0 +1,88 @@
+body {
+	margin: 0;
+	padding: 0;
+}
+
+.myui-flex {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	width: 100%;
+}
+
+.myui-flex-item {
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	flex: 1;
+}
+
+.flex-1 {
+	width: 10%;
+}
+
+.flex-2 {
+	width: 20%;
+}
+
+
+.flex-3 {
+	width: 30%;
+}
+
+.flex-4 {
+	width: 40%;
+}
+
+.flex-5 {
+	width: 50%;
+}
+
+.placeholder {
+	border: 1px solid #fff;
+	background-color: #f1f1f1;
+	height: 2.1em;
+	line-height: 2.1em;
+	text-align: center;
+	color: #cfcfcf;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+/* 左右浮动  和 清除浮动  ---start */
+.myui-left {
+	float: left;
+}
+
+.myui-right {
+	float: right;
+}
+
+/*清除浮动代码---写在浮动div的父节点上面*/
+
+/* 方式一  任选一种 */
+.myui-clear-float:after {
+	display: block;
+	clear: both;
+	content: "";
+	visibility: hidden;
+	height: 0
+}
+
+/* 方式二 任选一种 */
+/* 	.myui-clear-float:after, .myui-clear-float:before {content: ""; display: table;}
+		.myui-clear-float:after {clear: both;} */
+
+.myui-clear-float {
+	*zoom: 1
+}
+
+/*左右浮动  和 清除浮动 ---end */
+
+/*内容居中 文本 input select textarea div等居中 ---start */
+.myui-box-center{
+  text-align:center; 
+  vertical-align:middel;
+  margin: 0 auto;
+ }
+/*内容居中 文本 input select textarea div等居中 ---end */
