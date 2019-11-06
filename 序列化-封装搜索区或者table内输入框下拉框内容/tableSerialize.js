@@ -4,15 +4,14 @@
 	//@time:2019-1-22
 	"use strict";
 	var serializeTb = function(el, options) {
-		this.$element = el,
+		this.$element = el;
 			this.defaults = {
 				'filter': [], //过滤字段
 				'bind': { //绑定的name,是否绑定
 					name: 'bind',
 					able: true
-				},
-				//'resultType': 'object',
-			},
+				}
+			};
 			this.settings = $.extend({}, this.defaults, options);
 	}
 
@@ -49,42 +48,42 @@
 			}
 			return dataArr;
 		},
-		getSearchObj: function() {//序列化搜索栏的信息
+		getSearchObj: function() { //序列化搜索栏的信息
 			var item;
 			var _this = this.$element;
 			var _settings = this.settings;
-			if (typeof(_settings.resultType) == 'undefined' || _settings.resultType== 'string') { //默认为字符串
-				item='';
-			}else{
-				item={};
+			if (typeof(_settings.resultType) == 'undefined' || _settings.resultType == 'string') { //默认为字符串
+				item = '';
+			} else {
+				item = {};
 			}
 			var arr = $(_this.selector + " :input,textarea,select").serializeArray();
 
 			if (arr.length <= 0) {
 				return item;
 			}
-		
+
 			arr.forEach(function(obj, ind) {
-				if(typeof(item)== 'object' && _settings.filter.indexOf(obj.name) == -1){
-					item[obj.name]=obj.value;
-				}	
-				if (typeof(item)== 'string' && _settings.filter.indexOf(obj.name) == -1) {
+				if (typeof(item) == 'object' && _settings.filter.indexOf(obj.name) == -1) {
+					item[obj.name] = obj.value;
+				}
+				if (typeof(item) == 'string' && _settings.filter.indexOf(obj.name) == -1) {
 					item += obj.name + "=" + obj.value + "&";
 				}
 
 			});
-			
-			if (typeof(item)== 'string') { //默认为对象
+
+			if (typeof(item) == 'string') { //默认为对象
 				item = item.substring(0, item.length - 1);
 			}
- 			return item;
+			return item;
 		}
 	}
 
 	$.fn.serializeTable = function(options) {
 		var ser = new serializeTb(this, options);
 		if (options.hasOwnProperty('getAllValue')) {
-			options.getAllValue(ser.getAllValue());//回调函数 getAllValue--无参  
+			options.getAllValue(ser.getAllValue()); //回调函数 getAllValue--无参  
 		}
 		return ser.getAllValue();
 	};
@@ -97,3 +96,55 @@
 
 
 })(jQuery);
+
+
+//添加数组IndexOf方法
+if (!Array.prototype.indexOf) {
+	Array.prototype.indexOf = function(elt /*, from*/ ) {
+		var len = this.length >>> 0;
+
+		var from = Number(arguments[1]) || 0;
+		from = (from < 0) ?
+			Math.ceil(from) :
+			Math.floor(from);
+		if (from < 0)
+			from += len;
+
+		for (; from < len; from++) {
+			if (from in this && this[from] === elt)
+				return from;
+		}
+		return -1;
+	};
+}
+
+
+//官网查询的兼容代码段
+// Reference: http://es5.github.io/#x.4.4.
+if (!Array.prototype.forEach) {
+	Array.prototype.forEach = function(callback /*, thisArg*/ ) {
+		var T, k;
+		if (this == null) {
+			throw new TypeError('this is null or not defined');
+		}
+		var O = Object(this);
+		var len = O.length >>> 0;
+
+		if (typeof callback !== 'function') {
+			throw new TypeError(callback + ' is not a function');
+		}
+
+		if (arguments.length > 1) {
+			T = arguments[1];
+		}
+		k = 0;
+		while (k < len) {
+			var kValue;
+			if (k in O) {
+				kValue = O[k];
+				callback.call(T, kValue, k, O);
+			}
+			k++;
+		}
+	};
+}
