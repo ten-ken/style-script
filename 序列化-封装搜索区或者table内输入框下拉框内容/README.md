@@ -12,7 +12,8 @@
      
    3.$("#listTable").serializeSearch({'resultType':"object"});//
         
-         3.1 resultType属性为空 默认对象 如{name:'lisi',age:26}       否则返回字符串例如 "name=lisi&age=26"  
+         3.1 resultType属性为空 默认对象 如{name:'lisi',age:26}  
+              否则返回字符串例如 "name=lisi&age=26"  
          3.2 移除参数<span style="color: green"> filter</span>
          3.3 移除参数<span style="color: green"> able</span>
 
@@ -21,7 +22,8 @@
 ## 原始版本
 ## tableSerialize.js :序列化-封装搜索区或者table内输入框下拉框内容的小插件 
 ```
-  var tables = $("#listTable").serializeSearch({'bind': { able: false}});//封装格式化 多table部分  
+  var tables = $("#listTable").serializeSearch({'bind': { able: false}});
+  //封装格式化 多table部分  
 ```
 | 参数       | 作用   |类型    |  默认值 |必填 |
 | --------   | -----:  |-----:  | :----:  |--- |
@@ -33,7 +35,8 @@
 
 
 ```
- ##var mains = $("#mainContent").serializeSearch({'resultType':"object"});//封装格式化 多搜索区域 将其变成url后参数或者整个对象
+ ##var mains = $("#mainContent").serializeSearch({'resultType':"object"});
+ //封装格式化 多搜索区域 将其变成url后参数或者整个对象
 ```
 | 参数       | 作用   |类型    |  默认值 |必填 |
 | --------   | -----:  |-----:  | :----:  |--- |
