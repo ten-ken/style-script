@@ -95,7 +95,8 @@ var CombinationStruct = (function(_options) {
 
 
 	//将数据组合--默认从第一个数组开始排列组合
-	function doCombination(arr, index = 0) {
+	function doCombination(arr, index) {
+		index =index||0;
 		if (arr.length > 0) {
 			var code = arr[index].name;
 			var txtV = arr[index].txtV;
