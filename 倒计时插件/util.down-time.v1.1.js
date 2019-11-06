@@ -33,22 +33,23 @@ var _DownTime= function (params) {
 _DownTime.prototype = {
 	constructor: _DownTime,
 	init: function() {//初始化方法 
-		let _this = this;
-		let _downList = this.downList;
+		var _this = this;
+		var _downList = this.downList;
 		clearInterval(_this.timeId);
 		// let calHg = 0;
-		let len =_this.dataType=="Object"?"1":_downList.length;
+		var len =_this.dataType=="Object"?"1":_downList.length;
 		_this.height =_this.setHight(len);
 		
-		let timeOutId = setInterval(function() {
+		var timeOutId = setInterval(function() {
 			// 获取当前时间，同时得到活动结束时间数组
-			let newTime = new Date().getTime();
+			var newTime = new Date().getTime();
 			// 对结束时间进行处理渲染到页面
 			if(_this.dataType=="Object"){
 				_this.handSeckill(_downList,newTime,_this);
 			}else{
-				_downList.forEach(o => {
-					_this.handSeckill(o,newTime,_this);
+				_downList.forEach(function(o){
+					// console.log(o)
+					_this.handSeckill(o, newTime, _this);
 				})
 			}
 			if (typeof _this.success == "function") {
@@ -65,10 +66,10 @@ _DownTime.prototype = {
 		return len * 412;
 	},
 	handSeckill:function(o,newTime,_this) {
-		let endTime = new Date(o[_this.end].replace(/-/g, "/")).getTime();
-		let startTime = new Date(o[_this.start].replace(/-/g, "/")).getTime();
-		let isStart = 0;
-		let obj = null;
+		var endTime = new Date(o[_this.end].replace(/-/g, "/")).getTime();
+		var startTime = new Date(o[_this.start].replace(/-/g, "/")).getTime();
+		var isStart = 0;
+		var obj = null;
 		//未开始
 		if(startTime-newTime>0){
 			obj = _this.handTime(startTime,newTime,_this);
@@ -87,13 +88,13 @@ _DownTime.prototype = {
 		o.downTimeArr = obj;
 	},
 	handTime:function (o_time,newTime,_this){
-		let time = (o_time - newTime) / 1000;
+		var time = (o_time - newTime) / 1000;
 		// 获取天、时、分、秒
-		let day = parseInt(time / (60 * 60 * 24));
-		let hour = parseInt(time % (60 * 60 * 24) / 3600);
-		let min = parseInt(time % (60 * 60 * 24) % 3600 / 60);
-		let sec = parseInt(time % (60 * 60 * 24) % 3600 % 60);
-		let obj = {
+		var day = parseInt(time / (60 * 60 * 24));
+		var hour = parseInt(time % (60 * 60 * 24) / 3600);
+		var min = parseInt(time % (60 * 60 * 24) % 3600 / 60);
+		var sec = parseInt(time % (60 * 60 * 24) % 3600 % 60);
+		var obj = {
 			day: _this.timeFormat(day),
 			hour: _this.timeFormat(hour),
 			min: _this.timeFormat(min),
@@ -102,3 +103,30 @@ _DownTime.prototype = {
 		return obj;
 	}
 }
+
+
+
+//解决ie9不兼容的Object.assign问题 
+if (typeof Object.assign != 'function') {
+	Object.assign = function(target) {
+		'use strict';
+		if (target == null) {
+			throw new TypeError('Cannot convert undefined or null to object');
+		}
+
+		target = Object(target);
+		for (var index = 1; index < arguments.length; index++) {
+			var source = arguments[index];
+			if (source != null) {
+				for (var key in source) {
+					if (Object.prototype.hasOwnProperty.call(source, key)) {
+						target[key] = source[key];
+					}
+				}
+			}
+		}
+		return target;
+	};
+}
+
+
