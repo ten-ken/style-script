@@ -1,13 +1,13 @@
 var _editIndex = undefined;
 var _cmenu_;
 var _table_id__ = "#dg";
-var e_this_ ;
+var e_this_;
 
 var EasyGrid = function(options) {
 	e_this_ = this;
 	this._options = options;
 	this._default = this.defaultConfig();
-	let _options = this._options;
+	var _options = this._options;
 	if (!_options.el) {
 		throw new Error("el不能为空 为table的id值");
 	}
@@ -17,10 +17,10 @@ var EasyGrid = function(options) {
 
 	//此处得到配置信息  前提是未设置配置行的信息部分  设置了行的属性配置 默认不读取dom部分设置的行属性
 	if (!_options.columns) {
-		let _columns_ = [
+		var _columns_ = [
 			[]
 		];
-		let t_option;
+		var t_option;
 		console.log(_options);
 		$(_options.el + " thead tr:eq(0) th").each(function(index) {
 			t_option = '\{' + $(this).attr("data-options") + '\}';
@@ -32,7 +32,7 @@ var EasyGrid = function(options) {
 		_options.columns = _columns_;
 	}
 
-	let columns = _options.columns;
+	var columns = _options.columns;
 	if (!_options.columns) {
 		throw new Error("columns不能为空");
 	}
@@ -54,7 +54,7 @@ EasyGrid.prototype = {
 			pageList: [10, 20, 50, 100],
 			frozenColumns: [],
 			columns: [],
-			filterMenu:true,
+			filterMenu: true,
 			onBeforeEdit: function(index, row) {
 				$(this).datagrid('updateRow', {
 					index: index,
@@ -164,8 +164,8 @@ EasyGrid.prototype = {
 		}
 		//是否开启语句菜单
 		console.log(_options_.filterMenu);
-		if(_options_.filterMenu!=false && this._default.filterMenu){
-			this._default.onHeaderContextMenu =this.onHeaderContextMenu;
+		if (_options_.filterMenu != false && this._default.filterMenu) {
+			this._default.onHeaderContextMenu = this.onHeaderContextMenu;
 		}
 
 		this._options.frozenColumns = frozenColumns;
@@ -179,19 +179,19 @@ EasyGrid.prototype = {
 		}
 		var op = $(_newOptions.el).datagrid(_newOptions);
 
-		var arr = [{
-			field: 'unitcost',
-			type: 'numberbox',
-			op: ['equal', 'notequal', 'less', 'greater']
-		}];
 		if (_newOptions.enableFilter) {
 			op.datagrid('enableFilter', _newOptions.filterConfig || []);
+			var ignores = _newOptions.filterIngores;
+			for (var ind in ignores) {
+				$(".datagrid-filter-row .datagrid-filter[name='" + ignores[ind] + "']").parents(".datagrid-filter-c").remove();
+			}
+			// console.log(_newOptions.filterIngores)
 		}
 	},
 	formatAction: function(value, row, index) {
-		let len_first =Object.keys(e_this_._options.columns[0][0]).length;
-		let len_cur =Object.getOwnPropertyNames(row).length;
-		if(len_first>len_cur){
+		var len_first = Object.keys(e_this_._options.columns[0][0]).length;
+		var len_cur = Object.getOwnPropertyNames(row).length;
+		if (len_first > len_cur) {
 			return '';
 		}
 		if (row.editing) {
@@ -228,13 +228,13 @@ EasyGrid.prototype = {
 		}
 	},
 	selectionMode: function() { //多选模式开启
-		return `<div style="margin:10px 0;" >
-					<span>单行选择: </span>
-					<select onchange="_changemodel(this)">
-						<option value="0">是</option>
-						<option value="1">否</option>
-					</select>
-				</div>`;
+		var modes = '<div style="margin:10px 0;" ><span>单行选择: </span>';
+		modes += '<select onchange="_changemodel(this)">';
+		modes += '<option value="0">是</option>';
+		modes += '<option value="1">否</option>';
+		modes += '</select></div>';
+		console.log(modes)
+		return modes;
 	},
 	//创建语境菜单
 	onHeaderContextMenu: function(e, field) {
@@ -437,3 +437,32 @@ function _createColumnMenu() {
 		});
 	}
 }
+
+
+
+
+
+//解决ie9不兼容的Object.assign问题 
+if (typeof Object.assign != 'function') {
+	Object.assign = function(target) {
+		'use strict';
+		if (target == null) {
+			throw new TypeError('Cannot convert undefined or null to object');
+		}
+
+		target = Object(target);
+		for (var index = 1; index < arguments.length; index++) {
+			var source = arguments[index];
+			if (source != null) {
+				for (var key in source) {
+					if (Object.prototype.hasOwnProperty.call(source, key)) {
+						target[key] = source[key];
+					}
+				}
+			}
+		}
+		return target;
+	};
+}
+
+

@@ -3,16 +3,13 @@
 	<head>
 		<meta charset="utf-8">
 		<title></title>
-	<!-- 	<link rel="stylesheet" type="text/css" href="css/themes/default/easyui.css">
-		<link rel="stylesheet" type="text/css" href="css/themes/icon.css">
-		<link rel="stylesheet" type="text/css" href="css/icon.css"> -->
 		 <link rel="stylesheet" type="text/css" href="https://www.jeasyui.com/easyui/themes/default/easyui.css">
 		<link rel="stylesheet" type="text/css" href="https://www.jeasyui.com/easyui/themes/icon.css">
 		
 		<script type="text/javascript" src="js/easyui/jquery.min.js"></script>
 		<script type="text/javascript" src="js/easyui/jquery.easyui.min.js"></script>
 	</head>
-	<body>
+	<body style="height: 2888px;">
 		<div id="tb">
 			<a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true" onclick="_append()"></a>
 			<a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-remove',plain:true" onclick="_removeit()"></a>
@@ -53,7 +50,6 @@
 	<script src="js/easyui/easyui-lang-zh_CN.js"></script>
 
 	<script>
-		
 		//过滤器的配置
 		function filterConfig(){
 			return [{
@@ -164,13 +160,13 @@
 			filterBtnIconCls: 'icon-filter',
 			toolbar: "#tb", //操作工具条
 			fitColumns: true,
-			filterMenu:false,//***作者新增属性 设置默认的语句菜单
+			// filterMenu:false,//***作者新增属性 设置默认的语句菜单
 			el: "#dg", //table id---***作者新增属性
 			url: 'json/data.json', //后台访问地址
 			// autoWidth:true,//***作者新增属性  宽度自动--autoWidth设置为true 会影响到fitColumns 宽度铺满 单元格铺满
 			actionConfig: { //***作者新增属性  操作行
-				// need: true,
-				location: 0, //-1是最后
+				need: true,
+				// location: 0, //-1是最后
 				field: 'action',
 				width: 180,
 				align: 'center',
@@ -179,14 +175,14 @@
 				// formatter:formatAction//不写按默认的来  写了按你的样式来
 			},
 			// columns: columns,
-			clickCellEdit: true,
-			//onEndEdit 已默认 需要修改重新onEndEdit方法
+			// clickCellEdit: true,
 			rownumbers: true,
 			showFooter: true,
 			//后面两项需要 引入datagrid-filter.js
 			enableFilter:true,//***作者新增属性  开启过滤器
 			filterConfig:filterConfig(), //***作者新增属性  过滤器的配置
-			// onHeaderContextMenu:null
+			filterIngores:['action','itemid','productid'],//***作者新增属性  忽略过滤的字段 数组
+			selectionMode:true
 		});
 	</script>
 
