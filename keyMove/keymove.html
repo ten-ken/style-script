@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>键盘上下左右切换输入框 光标</title>
+	</head>
+
+	<body class="bodyStyle">
+		<div class="portlet box green" id="out" style="margin-top:20px;margin-left: 20px;">
+			<div class="portlet-body form" id="inner">
+				<div class="form-group row">
+					<input name="a" value="" placeholder="aaaa" class="keydown">
+					<input name="b" value="" placeholder="bbbb" class="keydown">
+					<select name="c" class="need_ingore">
+						<option>c1</option>
+						<option>c2</option>
+					</select>
+				</div>
+				
+				<div class="form-group row">
+					<input name="a" value="" placeholder="aaaa" class="keydown">
+					<textarea cols="3" rows="3" class="keydown"></textarea>
+				</div>
+
+				<div class="form-group row" style="margin-top:10px" >
+					<input name="d" value="" placeholder="dddd" class="keydown">
+					<input name="e" value="" placeholder="eeee" class="keydown">
+					<input name="e" value="" placeholder="fzff" class="keydown">
+					<input name="e" value="" placeholder="zcc" class="keydown">
+					<textarea cols="3" rows="3" class="keydown"></textarea>
+				</div>
+
+			</div>
+		</div>
+		<span id="head">
+
+			<table style="margin-top:20px;margin-left: 20px;" id="listguige" border="1">
+				<thead>
+					<tr>
+						<th width="200">颜色</th>
+						<th width="200">商品编号</th>
+						<th width="200">销售价</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td style="text-align: center;">女款纯黑色
+							<input type="hidden" autocomplete="off" name="" value="" class="keydown"></td>
+						<td>
+							<input type="text" autocomplete="off" placeholder="" name="no" value="" class="keydown">
+						</td>
+						<td>
+							<input type="text" autocomplete="off" name="salePrice" value="" class="keydown">
+						</td>
+					</tr>
+					<tr>
+						<td style="text-align: center;">女款纯黑色
+							<input type="hidden" autocomplete="off" name="" value="" class="keydown"></td>
+						<td>
+							<input type="text" autocomplete="off" placeholder="" name="no" value="" class="keydown">
+						</td>
+						<td>
+							<input type="text" autocomplete="off" name="salePrice" value="" class="keydown">
+						</td>
+					</tr>
+					<tr>
+						<td style="text-align: center;">女款纯黑色
+							<input type="hidden" autocomplete="off" name="" value="" class="keydown"></td>
+						<td>
+							<input type="text" autocomplete="off" placeholder="" name="no" value="" class="keydown">
+						</td>
+						<td>
+							<input type="text" autocomplete="off" name="salePrice" value="" class="keydown">
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</span>
+
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script src="fn.keyboard.v1.0.js"></script>
+		<script>
+			$(function() {
+				$.keyboardMove({
+					el: '.keydown',
+					id: 'inner',
+					pId: 'out',
+					lastEl: '.row',
+					keydowns: ['up-down','left-right']//默认是上下  左右  up-down代表上下键 left-right左右键
+				});
+
+				$.keyboardMove({
+					el: '.keydown',
+					id: 'listguige',
+					pId: 'head',
+					lastEl: 'tr',
+					// keydowns:  ['left-right']
+				});
+			})
+		</script>
+
+		<!-- END BODY -->
+
+	</body>
+
+
+</html>
