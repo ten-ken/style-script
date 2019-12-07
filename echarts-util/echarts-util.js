@@ -142,13 +142,13 @@ EChartsUtil.prototype = {
 			calculable: true,
 		};
 
-		Object.assign(option, params.resetConfig || {});
-
 		option.series = _getFunnelCfg(params);
 		if (params.legendData) {
 			option.legend = {};
 			option.legend.data = params.legendData;
 		}
+		Object.assign(option, params.resetConfig || {});
+		
 		myChart.setOption(option, true);
 		this.options = option;
 		return myChart;
@@ -539,13 +539,13 @@ function _getDefaultPie(params) {
 //获取基础的漏斗图series配置
 function _getFunnelCfg(params) {
 	var series = [{
-		name: '漏斗图',
+		name: params.title,
 		type: 'funnel',
 		left: '10%',
 		top: 60,
 		bottom: 60,
-		width: '35%',
-		height: '70%',
+		// width: '35%',
+		// height: '85%',
 		min: 0,
 		max: 100,
 		minSize: '0%',

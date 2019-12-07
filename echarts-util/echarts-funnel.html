@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 	</head>
 	<body style="height: 100%; margin: 0">
-		<div id="container1" style="height: 100%"></div>
+		<div id="container1" style="height: 100%;width:600px"></div>
 		<div id="container2" style="height: 100%"></div>
 
 		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
@@ -19,6 +19,45 @@
                 {value: 80, name: '点击'},
                 {value: 100, name: '展现'}
             ];
+			
+			// var resetConfig={
+			// 	series:[{
+			// 		name: '漏斗图',
+			// 		type: 'funnel',
+			// 		left: '10%',
+			// 		top: 60,
+			// 		bottom: 60,
+			// 		width: '10%',
+			// 		height: '85%',
+			// 		min: 0,
+			// 		max: 100,
+			// 		minSize: '0%',
+			// 		maxSize: '100%',
+			// 		sort: 'descending',
+			// 		gap: 2,
+			// 		label: {
+			// 			show: true,
+			// 			position: 'inside'
+			// 		},
+			// 		labelLine: {
+			// 			length: 10,
+			// 			lineStyle: {
+			// 				width: 1,
+			// 				type: 'solid'
+			// 			}
+			// 		},
+			// 		itemStyle: {
+			// 			borderColor: '#fff',
+			// 			borderWidth: 1
+			// 		},
+			// 		emphasis: {
+			// 			label: {
+			// 				fontSize: 20
+			// 			}
+			// 		},
+			// 		data: seriesData1
+			// 	}]
+			// };
 
 
 			var EChartsUtil1 = new EChartsUtil({
@@ -29,6 +68,7 @@
 				title: '简单漏斗表', //必填项
 				tools:["saveAsImage","dataView","restore"],//特征工具
 				legendData:['展现', '点击', '访问', '咨询', '订单'],
+				// resetConfig:resetConfig
 			});
 			
 			var myChart = EChartsUtil1.funnel();
