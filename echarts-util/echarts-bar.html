@@ -11,6 +11,7 @@
 
 		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
 		<script type="text/javascript" src="echarts-util.js"></script>
+		<script src="ken-compatible.js"></script>
 
 		<script>
 			/************************************ 普通柱图  *****************************************/
@@ -50,9 +51,9 @@
 				names: ['终南山下活死人墓', '22', '33', '44', '55', '66', '77', '88', '99', '110', '111', '112', '113'],
 				dataZoom: "x",
 				// resetConfig: conf
-				formatterVal:function(value){
-					return value.replace(/(.{2})/g, '$1\n');
-				}
+				// formatterVal:function(value){
+				// 	return value.replace(/(.{2})/g, '$1\n');
+				// }
 			});
 			var echars1 = EChartsUtil1.bar();
 			console.log(EChartsUtil1)
@@ -84,7 +85,7 @@
 				title: '多个维度柱状图', //必填项
 				legendData: [],
 				names: ['周一', '周二', '周三', '周四', '周五'],
-				// dataZoom:"x"
+				dataZoom: "x",
 				// resetConfig: resetConfig
 			});
 			var echars2 = EChartsUtil2.bar();
@@ -93,29 +94,29 @@
 
 			//echarts的相关配置 可覆盖原配置或者新增配置
 			var resetConfig3 = {
-				// visualMap: {
-				// 	type: 'continuous',
-				// 	dimension: 1,
-				// 	text: ['High', 'Low'],
-				// 	inverse: true,
-				// 	itemHeight: 200,
-				// 	calculable: true,
-				// 	min: -2,
-				// 	max: 6,
-				// 	top: 60,
-				// 	left: 10,
-				// 	inRange: {
-				// 		colorLightness: [0.4, 0.8]
-				// 	},
-				// 	outOfRange: {
-				// 		color: '#bbb'
-				// 	},
-				// 	controller: {
-				// 		inRange: {
-				// 			color: '#2f4554'
-				// 		}
-				// 	}
-				// }
+				visualMap: {
+					type: 'continuous',
+					dimension: 1,
+					text: ['High', 'Low'],
+					inverse: true,
+					itemHeight: 200,
+					calculable: true,
+					min: -2,
+					max: 6,
+					top: 60,
+					left: 10,
+					inRange: {
+						colorLightness: [0.4, 0.8]
+					},
+					outOfRange: {
+						color: '#bbb'
+					},
+					controller: {
+						inRange: {
+							color: '#2f4554'
+						}
+					}
+				}
 			};
 
 

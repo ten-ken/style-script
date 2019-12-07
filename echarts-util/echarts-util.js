@@ -579,6 +579,7 @@ function _getFunnelCfg(params) {
 
 //获取默认的滚动条
 function _getDefaultZoom(xyF) {
+	// console.log(xyF)
 	xyF = xyF || "x";
 	if (xyF == "x") {
 		return [{
@@ -590,7 +591,7 @@ function _getDefaultZoom(xyF) {
 			maxValueSpan: 11, //最多12个
 			start: 0,
 			// end:100,
-			bottom: -60,
+			bottom: -3,
 			height: 10
 		}, ];
 	} else {
