@@ -189,4 +189,4 @@ https://pan.baidu.com/s/1KpwF4vbRgmzLD0bppOlVQQ
  <p><image src="https://github.com/ten-ken/image/blob/master/relate_img/funnel-img1.png?raw=true"/></p>
 
 
-###更多示例 下载项目运行起来即可 ，正常情况下所以的80%的折线图-饼图-条形图都能生成
+### 更多示例 下载项目运行起来即可 ，正常情况下所以的80%的折线图-饼图-条形图都能生成
