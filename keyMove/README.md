@@ -1,5 +1,5 @@
 ## 使用示例
-    $.keyboardMove({
+   				 $.keyboardMove({
 					el: '.keydown',//被监控的的最小单位dom的id或者class名称
 					id: 'inner',//需要监控的区域id
 					pId: 'out',//被监控的区域的父id
