@@ -7,91 +7,177 @@ https://pan.baidu.com/s/1KpwF4vbRgmzLD0bppOlVQQ
 ## 兼容性
    pc--web版的支持 IE7+  谷歌 火狐等浏览器（几乎都兼容）
 ## 前言
-  为了便于使用，echarts的参数实在很多 ，不同页面使用各个页面重写代码 长期冗余很多，对于不太了解前端的后端开发人员来说，更是比较麻烦。故此将常用的报表类型及相关参数进行封装。常规使用仅5-10行代码即可完成功能。
+  为了便于使用，echarts的参数实在很多 ，不同页面使用各个页面重写代码 长期冗余很多，对于不太了解前端的后端开发人员来说，更是比较麻烦。故此将常用的报表类型及相关参数进行封装。常规使用仅5-12行代码即可完成功能。
 	
 
 ## 相关参数
 
-| 参数       | 作用   |类型    |  默认值 |必填 |更新 |
+| 参数       | 作用   |类型    |  默认值 |必填 |相关 |
 | --------   | -----:  |-----:  | :----:  |--- |-----|
-| el  | 生成报表绑定dom元素的id |String |  无  |是|旧|
-| subtext      | 报表子标题 |String  |   无   |是 |当前新增|
-| title        | 报表标题| String  |   无   |是 |当前新增|
-| styleType        | 报表标题| String  |   无   |是 |当前新增|
-| xy        | 报表标题| String  |   无   |是 |当前新增|
-| legendData        | 报表标题| String  |   无   |是 |当前新增|
-| names        | 报表标题| String  |   无   |是 |当前新增|
-| tools        | 报表标题| String  |   无   |是 |当前新增|
-| dataZoom        | 报表标题| String  |   无   |是 |当前新增|
-| resetConfig        | 报表标题| String  |   无   |是 |当前新增|
+| el  | 生成报表绑定dom元素的id |String |  无  |是||
+| subtext      | 报表子标题 |String  |   无   |否 ||
+| title        | 报表标题| String  |   无   |否||
+| styleType        | 风格样式| String  |   无   |否 |barLabelRotation（针对柱图，参考官网）/area（面积区域化，针对折线图，参考官网）/pie-nest（多层饼图）/|
+| xy        | 以x轴还是y轴为类别轴| String  |   'x'   |否 |默认是x轴是相关类别 y轴是值|
+| legendData   | 图例数据| Array  |   无   |否 |展示不同数据对应的示例，点击对应颜色 可隐藏该类别数据的展示|
+| names        | 主轴对应的各个名称（如不同年份）| Array  |    |是 |针对饼图可以不填|
+| tools        | 特征工具（可参考官网）| Array  |   无   |否 |支持"saveAsImage","dataView","magicType","restore"，分别代表下载图片/数据视图/图表类型转换/重置（更多可以参考官网写入数组）|
+| dataZoom        | 以x/y轴显示滚动条 | String  |   无   |否 |值有'x'或者'y' 分别代表以哪个轴出现滚动条|
+| resetConfig        | 设置配置可以覆盖原有配置| object  |   无   |是 |格式参考官网的option格式属性，具体的查看echarts.js的内部对应的属性书写|
 
 
-## 相关事件/函数
+## 相关事件
 
 | 事件       | 作用     |返回值类型    | 参数值 |必填 |
 | --------   | -----:  |-----:  | :----:  |--- |
-| formatterVal   | 设置高度 |Number|  无  |否|
+| formatterVal   | 对值的处理（一般是名字太长进行换行设置 内部方法是单行显示7个字符）|  无  |否|
 
+## 方法
 
+| 方法       | 作用     |返回值类型    | 参数值 |
+| --------   | -----:  |-----:  | :----:  |--- |
+| line   |生成折线图 |返回chart对象 就是echart调用init的对象 |
+| bar   |生成条形图 |返回chart对象 就是echart调用init的对象 |
+| pie   |生成饼图 |返回chart对象 就是echart调用init的对象 |
+| gauge   |生成仪表图 |返回chart对象 就是echart调用init的对象 |
+| funnel   |生成漏斗图 |返回chart对象 就是echart调用init的对象 |
 
-## 版本引入和使用
-### 引入 	<div style="color:orange"><script src="xx/util.down-time.v1.1.js"></script></div>
-
-
-    数据源（实际从接口里面取）
-    var downList = {
-			adStartDate: "2019-10-09 11:01:24",
-			adEndDate: "2019-10-11 20:31:28",
-			isStart: 1 //此此属性可不要
-		};
-
-		//isStart 未开始/已开始 0,1
-		var dt = new _DownTime({
-			downList: downList,
-			start:'adStartDate',
-			end:'adEndDate',
-			// setHight:function(){
-			// 	return 3000;
-			// },
-			 success: function(data, calHg) {
-          			//伪代码 返回结果会带入isStart  未开始/已开始 0,1
-			   	 $(".placeholder").eq(0).html(data.downTimeArr.day + "天");
-			 	  $(".placeholder").eq(1).html(data.downTimeArr.hour + "时");
-			 	  $(".placeholder").eq(2).html(data.downTimeArr.min + "分");
-			 	  $(".placeholder").eq(3).html(data.downTimeArr.sec + "秒");
-			 }
+### 折线图演示:
+		 
+		
+		var seriesData1 = [{
+				name: '邮件营销',
+				type: 'line',
+				stack: '总量',
+				// areaStyle: {},
+				data: [120, 132, 101, 134, 90, 230, 210]
+			}
+		];
+		var EChartsUtil1 = new EChartsUtil({
+			el: 'container1',//必填项
+			subtext:"子标题",
+			seriesData: seriesData1,//必填项
+			// styleType:'area',//样式类型 ---shadow(鼠标上移有阴影)  和 barLabelRotation(条形标签旋转) 和 area(仅仅针对折线图)
+			// xy:true,//是x-y的样式 还是 y-x的样式 默认是xy轴  true
+			title: '柱状图',//必填项
+			legendData: [],//需要可填[]
+			names: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],//必填项
+			tools:["saveAsImage","dataView","magicType","restore"],//特征工具
+			dataZoom:"x"
+			// resetConfig:resetConfig
 		});
-### 引入 <div style="color:blue">	import DownTime from '/../../utils/es6.down-time.js';		</div>
-
-    与上面类似 只是new的对象是DownTime 不是_DownTime 这部分需要注意
-
-
-旧版本
-
-down-time.html（页面）	
-es6.down-time.js（es6 普通版）	
-es6.down-time.wx.js	（es6 小程序版）
-util.down-time.js（普通版）
-myui.css
-
-js 引入旧版本其中一个即可（非小程序 不要引入es6.down-time.wx.js 这个版本）
-
-| 参数       | 作用   |类型    |  默认值 |必填 |更新 |
-| --------   | -----:  |-----:  | :----:  |--- |-----|
-| downList  | 需要设置倒计时的对象或者json数组 |Array/Object  |  无  |是|旧|
+		
+		var mycharts1 = EChartsUtil1.line();
 
 
-## 相关事件/函数
 
-| 事件       | 作用     |返回值类型    | 参数值 |必填 |
-| --------   | -----:  |-----:  | :----:  |--- |
-| setHight   | 设置高度 |Number|  无  |否|
-| success    | 处理结束后的回调 | void |   返回处理后的数据源（downList） 和高度值    |需要 时间通过这个显示倒计时 |
+### 条形图演示:
 
-引入方法参考上面（数据源需要adStartDate 、adEndDate 和 isStart 三个属性 分别代表开始时间 结束时间 和是否开始--isStart为0或1 ）
+	var seriesData1 = [{
+				name: '其他',
+				type: 'bar',
+				barWidth: "30",
+				// stack: '搜索引擎',
+				data: [62, 82, 91, 84, 109, 110, 120, 221, 824, 59, 170, 35, 886]
+			}];
 
-效果展示：
+			var EChartsUtil1 = new EChartsUtil({
+				el: 'container1', //必填项
+				// styleType:'barLabelRotation',
+				subtext: "子标题",
+				seriesData: seriesData1, //必填项
+				title: '简单柱状图', //必填项
+				legendData: ['Forest', 'Steppe'],
+				names: ['终南山下活死人墓', '22', '33', '44', '55', '66', '77', '88', '99', '110', '111', '112', '113'],
+				dataZoom: "x",
+				// resetConfig: conf
+				// formatterVal:function(value){
+				// 	return value.replace(/(.{2})/g, '$1\n');
+				// }
+			});
+			var echars1 = EChartsUtil1.bar();	
  
+ 
+ ### 饼图演示:
+
+		var seriesData1 = [{
+					value: 335,
+					name: '直接访问'
+				},
+				{
+					value: 310,
+					name: '邮件营销'
+				},
+				{
+					value: 274,
+					name: '联盟广告'
+				},
+				{
+					value: 235,
+					name: '视频广告'
+				},
+				{
+					value: 400,
+					name: '搜索引擎'
+				}
+			];
+
+			var EChartsUtil1 = new EChartsUtil({
+				el: 'container1', //必填项
+				subtext: "子标题",
+				seriesData: seriesData1, //必填项
+				title: '简单柱状图', //必填项
+				legendData: [],
+			});
+			var echars1 = EChartsUtil1.pie();
+			
+ ### 仪表图演示:
+
+		var seriesData1 = [{
+				name: '业务指标',
+				type: 'gauge',
+				detail: {
+					formatter: '{value}%'
+				},
+				data: [{
+					value: 50,
+					name: '完成率'
+				}]
+			}];
+
+
+			var EChartsUtil1 = new EChartsUtil({
+				el: 'container1', //必填项
+				subtext: "子标题",
+				seriesData: seriesData1, //必填项---如果写了resetConfig  此项可以省略 利用重写的配置去实现效果
+				title: '简单仪表器', //必填项
+				tools:["saveAsImage","dataView","restore"],//特征工具
+			});
+			
+			var myChart = EChartsUtil1.gauge();
+			
+   ### 漏斗图演示:
+
+		var seriesData1 = [
+                   {value: 60, name: '访问'},
+                   {value: 40, name: '咨询'},
+                   {value: 20, name: '订单'},
+              	   {value: 80, name: '点击'},
+             	   {value: 100, name: '展现'}
+         	   ];
+
+
+		var EChartsUtil1 = new EChartsUtil({
+			el: 'container1', //必填项
+			subtext: "子标题",
+			seriesData: seriesData1, //必填项---如果写了resetConfig  此项可以省略 利用重写的配置去实现效果
+			title: '简单漏斗表', //必填项
+			tools:["saveAsImage","dataView","restore"],//特征工具
+			legendData:['展现', '点击', '访问', '咨询', '订单'],
+		});
+			
+		var myChart = EChartsUtil1.funnel();
+
  <p><image src="https://github.com/ten-ken/image/blob/master/relate_img/down-time.png?raw=true"/></p>
 
 
