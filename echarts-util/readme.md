@@ -17,7 +17,7 @@ https://pan.baidu.com/s/1KpwF4vbRgmzLD0bppOlVQQ
 | el  | 生成报表绑定dom元素的id |String |  无  |是||
 | subtext      | 报表子标题 |String  |   无   |否 ||
 | title        | 报表标题| String  |   无   |否||
-| styleType        | 风格样式| String  |   无   |否 |barLabelRotation（针对柱图，参考官网）/area（面积区域化，针对折线图，参考官网）/pie-nest（多层饼图）/|
+| styleType        | 风格样式| String  |   无   |否 |barLabelRotation（针对柱图，参考官网）/area（面积区域化，针对折线图，参考官网）/pie-nest（多层饼图--针对饼图）/shadow(阴影展示)/ring(圆环--针对饼图)|
 | xy        | 以x轴还是y轴为类别轴| String  |   'x'   |否 |默认是x轴是相关类别 y轴是值|
 | legendData   | 图例数据| Array  |   无   |否 |展示不同数据对应的示例，点击对应颜色 可隐藏该类别数据的展示|
 | names        | 主轴对应的各个名称（如不同年份）| Array  |    |是 |针对饼图可以不填|
@@ -35,12 +35,13 @@ https://pan.baidu.com/s/1KpwF4vbRgmzLD0bppOlVQQ
 ## 方法
 
 | 方法       | 作用     |返回值类型    | 参数值 |
-| --------   | -----:  |-----:  | :----:  |--- |
-| line   |生成折线图 |返回chart对象 就是echart调用init的对象 |
-| bar   |生成条形图 |返回chart对象 就是echart调用init的对象 |
-| pie   |生成饼图 |返回chart对象 就是echart调用init的对象 |
-| gauge   |生成仪表图 |返回chart对象 就是echart调用init的对象 |
-| funnel   |生成漏斗图 |返回chart对象 就是echart调用init的对象 |
+| --------   | -----:  |-----:  | :----:  |
+| line   |生成折线图 |返回chart对象 就是echart调用init的对象 |无|
+| bar   |生成条形图 |返回chart对象 就是echart调用init的对象 |无|
+| pie   |生成饼图 |返回chart对象 就是echart调用init的对象 |无|
+| gauge   |生成仪表图 |返回chart对象 就是echart调用init的对象 |无|
+| funnel   |生成漏斗图 |返回chart对象 就是echart调用init的对象 |无|
+
 
 ### 折线图演示:
 		 
@@ -70,6 +71,7 @@ https://pan.baidu.com/s/1KpwF4vbRgmzLD0bppOlVQQ
 		var mycharts1 = EChartsUtil1.line();
 
 
+ <p><image src="https://github.com/ten-ken/image/blob/master/relate_img/line-img1.png?raw=true"/></p>
 
 ### 条形图演示:
 
@@ -97,8 +99,10 @@ https://pan.baidu.com/s/1KpwF4vbRgmzLD0bppOlVQQ
 			});
 			var echars1 = EChartsUtil1.bar();	
  
- 
- ### 饼图演示:
+  
+  p><image src="https://github.com/ten-ken/image/blob/master/relate_img/bar-img1.png?raw=true"/></p>
+
+### 饼图演示:
 
 		var seriesData1 = [{
 					value: 335,
@@ -131,6 +135,8 @@ https://pan.baidu.com/s/1KpwF4vbRgmzLD0bppOlVQQ
 			});
 			var echars1 = EChartsUtil1.pie();
 			
+ <p><image src="https://github.com/ten-ken/image/blob/master/relate_img/pie-img1.png?raw=true"/></p>			
+			
  ### 仪表图演示:
 
 		var seriesData1 = [{
@@ -155,8 +161,9 @@ https://pan.baidu.com/s/1KpwF4vbRgmzLD0bppOlVQQ
 			});
 			
 			var myChart = EChartsUtil1.gauge();
-			
-   ### 漏斗图演示:
+ <p><image src="https://github.com/ten-ken/image/blob/master/relate_img/gauge-img1.png?raw=true"/></p>			
+  
+  ### 漏斗图演示:
 
 		var seriesData1 = [
                    {value: 60, name: '访问'},
@@ -178,7 +185,8 @@ https://pan.baidu.com/s/1KpwF4vbRgmzLD0bppOlVQQ
 			
 		var myChart = EChartsUtil1.funnel();
 
- <p><image src="https://github.com/ten-ken/image/blob/master/relate_img/down-time.png?raw=true"/></p>
+ 
+ <p><image src="https://github.com/ten-ken/image/blob/master/relate_img/funnel-img1.png?raw=true"/></p>
 
 
-
+###更多示例 下载项目运行起来即可 ，正常情况下所以的80%的折线图-饼图-条形图都能生成
