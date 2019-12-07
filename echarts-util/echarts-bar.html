@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+	<head>
+		<meta charset="utf-8">
+	</head>
+	<body style="height: 100%; margin: 0">
+		<div id="container1" style="height: 100%;width:600px"></div>
+		<div id="container2" style="height: 100%"></div>
+		<div id="container3" style="height: 100%"></div>
+		<div id="container4" style="height: 100%"></div>
+
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+		<script type="text/javascript" src="echarts-util.js"></script>
+
+		<script>
+			/************************************ 普通柱图  *****************************************/
+			// var conf = {
+			// 	xAxis: [{
+			// 		type: 'value',
+			// 		axisLabel: {
+			// 			formatter: function(value) {
+			// 				return value.replace(/(.{2})/g, '$1\n')
+			// 			}
+			// 		},
+			// 	}],
+			// 	yAxis: [{
+			// 		type: 'category',
+			// 		axisTick: {
+			// 			show: false
+			// 		},
+			// 		data: '$$'
+			// 	}],
+			// };
+
+			var seriesData1 = [{
+				name: '其他',
+				type: 'bar',
+				barWidth: "30",
+				// stack: '搜索引擎',
+				data: [62, 82, 91, 84, 109, 110, 120, 221, 824, 59, 170, 35, 886]
+			}];
+
+			var EChartsUtil1 = new EChartsUtil({
+				el: 'container1', //必填项
+				// styleType:'barLabelRotation',
+				subtext: "子标题",
+				seriesData: seriesData1, //必填项
+				title: '简单柱状图', //必填项
+				legendData: ['Forest', 'Steppe'],
+				names: ['终南山下活死人墓', '22', '33', '44', '55', '66', '77', '88', '99', '110', '111', '112', '113'],
+				dataZoom: "x",
+				// resetConfig: conf
+				formatterVal:function(value){
+					return value.replace(/(.{2})/g, '$1\n');
+				}
+			});
+			var echars1 = EChartsUtil1.bar();
+			console.log(EChartsUtil1)
+			// console.log(echars1)
+
+			/************************************ 多个维度柱图  *****************************************/
+
+			var seriesData2 = [{
+					name: 'Forest',
+					type: 'bar',
+					color: 'orange',
+					barWidth: "30",
+					barGap: 0,
+					data: [320, 332, 301, 334, 390]
+				},
+				{
+					name: 'Steppe',
+					barWidth: "30",
+					type: 'bar',
+					data: [220, 182, 191, 234, 290]
+				}
+			];
+
+			var EChartsUtil2 = new EChartsUtil({
+				el: 'container2', //必填项
+				// styleType:'barLabelRotation',
+				subtext: "子标题",
+				seriesData: seriesData2, //必填项
+				title: '多个维度柱状图', //必填项
+				legendData: [],
+				names: ['周一', '周二', '周三', '周四', '周五'],
+				// dataZoom:"x"
+				// resetConfig: resetConfig
+			});
+			var echars2 = EChartsUtil2.bar();
+
+			/************************************ 多个维度柱图2  *****************************************/
+
+			//echarts的相关配置 可覆盖原配置或者新增配置
+			var resetConfig3 = {
+				// visualMap: {
+				// 	type: 'continuous',
+				// 	dimension: 1,
+				// 	text: ['High', 'Low'],
+				// 	inverse: true,
+				// 	itemHeight: 200,
+				// 	calculable: true,
+				// 	min: -2,
+				// 	max: 6,
+				// 	top: 60,
+				// 	left: 10,
+				// 	inRange: {
+				// 		colorLightness: [0.4, 0.8]
+				// 	},
+				// 	outOfRange: {
+				// 		color: '#bbb'
+				// 	},
+				// 	controller: {
+				// 		inRange: {
+				// 			color: '#2f4554'
+				// 		}
+				// 	}
+				// }
+			};
+
+
+			var xAxisData = ["Class0", "Class1", "Class2", "Class3", "Class4", "Class5", "Class6", "Class7", "Class8", "Class9"];
+			var seriesData3 = [{
+					name: 'bar',
+					type: 'bar',
+					data: ["0.90", "0.72", "1.41", "0.61", "0.73", "1.97", "0.61", "1.39", "0.03", "0.47"]
+				},
+				{
+					name: 'bar2',
+					type: 'bar',
+					data: [-0.34, -0.03, -0.44, -0.09, -0.08, -0.91, -0.75, -0.09, -0.59, -0.88]
+				},
+				{
+					name: 'bar3',
+					type: 'bar',
+					data: ["4.80", "0.89", "0.78", "0.96", "2.96", "2.89", "2.82", "4.93", "4.69", "3.72"]
+				},
+				{
+					name: 'bar4',
+					type: 'bar',
+					data: ["0.47", "0.62", "0.86", "1.03", "0.42", "0.58", "0.65", "0.97", "1.25", "0.90"]
+				}
+			];
+
+
+			var EChartsUtil3 = new EChartsUtil({
+				el: 'container3', //必填项
+				styleType: 'shadow', //样式类型 ---shadow(鼠标上移有阴影)  和 barLabelRotation()
+				subtext: "子标题",
+				seriesData: seriesData3, //必填项
+				title: '多个维度柱状图', //必填项
+				legendData: [],
+				names: ['周一', '周二', '周三', '周四', '周五'],
+				resetConfig: resetConfig3
+			});
+
+			var echars3 = EChartsUtil3.bar();
+
+
+			/************************************ 多个维度柱图3  *****************************************/
+
+			var seriesData4 = [{
+					name: '利润',
+					type: 'bar',
+					label: {
+						normal: {
+							show: true,
+							position: 'inside'
+						}
+					},
+					data: [200, 170, 240, 244, 200, 220, 210]
+				},
+				{
+					name: '收入',
+					type: 'bar',
+					stack: '总量',
+					label: {
+						normal: {
+							show: true
+						}
+					},
+					data: [320, 302, 341, 374, 390, 450, 420]
+				},
+				{
+					name: '支出',
+					type: 'bar',
+					stack: '总量',
+					label: {
+						normal: {
+							show: true,
+							position: 'left'
+						}
+					},
+					data: [-120, -132, -101, -134, -190, -230, -210]
+				}
+			];
+
+			//此配置 可以重写部分的配置
+			var EChartsUtil4 = new EChartsUtil({
+				el: 'container4', //必填项
+				styleType: 'shadow', //样式类型 ---shadow(鼠标上移有阴影)  和 barLabelRotation(条形标签旋转) 和 area(仅仅针对折线图)
+				xy: false, //是x-y的样式 还是 y-x的样式 默认是xy轴  true
+				subtext: "子标题",
+				seriesData: seriesData4, //必填项
+				title: '多个维度柱状图', //必填项
+				legendData: [],
+				names: ['周一11111122', '周二', '周三', '周四', '周五'],
+				tools: ["saveAsImage", "dataView", "magicType", "restore"], //特征工具
+				dataZoom: "y"
+				// resetConfig: resetConfig3
+			});
+			var echars4 = EChartsUtil4.bar();
+		</script>
+	</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+	<head>
+		<meta charset="utf-8">
+	</head>
+	<body style="height: 100%; margin: 0">
+		<div id="container1" style="height: 100%"></div>
+		<div id="container2" style="height: 100%"></div>
+		<div id="container3" style="height: 100%"></div>
+
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+		<script type="text/javascript" src="echarts-util.js"></script>
+
+		<script>
+			/************************************ 普通饼图  *****************************************/
+			var seriesData1 = [{
+					value: 335,
+					name: '直接访问'
+				},
+				{
+					value: 310,
+					name: '邮件营销'
+				},
+				{
+					value: 274,
+					name: '联盟广告'
+				},
+				{
+					value: 235,
+					name: '视频广告'
+				},
+				{
+					value: 400,
+					name: '搜索引擎'
+				}
+			];
+
+			var EChartsUtil1 = new EChartsUtil({
+				el: 'container1', //必填项
+				// styleType:'barLabelRotation',
+				subtext: "子标题",
+				seriesData: seriesData1, //必填项
+				title: '简单柱状图', //必填项
+				legendData: [],
+				// names: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
+				// resetConfig: resetConfig
+			});
+			var echars1 = EChartsUtil1.pie();
+
+			/************************************ 环形饼图  *****************************************/
+
+			var seriesData2 = [{
+					value: 335,
+					name: '直接访问'
+				},
+				{
+					value: 310,
+					name: '邮件营销'
+				},
+				{
+					value: 234,
+					name: '联盟广告'
+				},
+				{
+					value: 135,
+					name: '视频广告'
+				},
+				{
+					value: 1548,
+					name: '搜索引擎'
+				}
+			];
+
+			//外部修改默认配置
+			var resetConfig2 = {
+				series: [{
+					radius: ['30%', '45%'],
+				}],
+				legend: {
+					type: 'scroll',
+					orient: 'vertical',
+					right: 10,
+					top: 20,
+					bottom: 20,
+				},
+			}
+
+
+			var EChartsUtil2 = new EChartsUtil({
+				el: 'container2', //必填项
+				styleType: 'ring', //需要
+				subtext: "子标题",
+				seriesData: seriesData2, //必填项
+				title: '圆形饼图', //必填项
+				legendData: [],
+				// names: ['直接访问','邮件营销','联盟广告','视频广告','搜索引擎'],
+				resetConfig: resetConfig2
+			});
+
+			var echars2 = EChartsUtil2.pie();
+
+			/************************************ Nested Pies饼图 *****************************************/
+
+
+
+
+			var seriesData3 = [{
+					name: '访问来源',
+					type: 'pie',
+					data: [{
+							value: 335,
+							name: '直达',
+							selected: true
+						},
+						{
+							value: 679,
+							name: '营销广告'
+						},
+						{
+							value: 1548,
+							name: '搜索引擎'
+						}
+					]
+				},
+				{
+					name: '访问来源',
+					type: 'pie',
+					data: [{
+							value: 335,
+							name: '直达'
+						},
+						{
+							value: 310,
+							name: '邮件营销'
+						},
+						{
+							value: 234,
+							name: '联盟广告'
+						},
+						{
+							value: 135,
+							name: '视频广告'
+						},
+						{
+							value: 1048,
+							name: '百度'
+						},
+						{
+							value: 251,
+							name: '谷歌'
+						},
+						{
+							value: 147,
+							name: '必应'
+						},
+						{
+							value: 102,
+							name: '其他'
+						}
+					]
+				}
+			];
+
+
+			var EChartsUtil3 = new EChartsUtil({
+				el: 'container3', //必填项
+				styleType: 'pie-nest', //需要
+				subtext: "子标题",
+				seriesData: seriesData3, //必填项
+				legendData: ['直达', '营销广告', '搜索引擎', '邮件营销', '联盟广告', '视频广告', '百度', '谷歌', '必应', '其他'],
+				// resetConfig: null
+			});
+
+			var echars3 = EChartsUtil3.pie();
+		</script>
+	</body>
+</html>

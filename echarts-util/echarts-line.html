@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="container1" style="width: 900px;height: 500px;"></div>
+		<div id="container2" style="width: 900px;height: 500px;"></div>
+		<div id="container3" style="width: 900px;height: 500px;"></div>
+		<div id="container4" style="width: 900px;height: 500px;"></div>
+	</body>
+
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+	<script type="text/javascript" src="echarts-util.js"></script>
+	<script>
+		
+		/****************************************单条数据***************************************/
+		
+		var seriesData1 = [{
+				name: '邮件营销',
+				type: 'line',
+				stack: '总量',
+				// areaStyle: {},
+				data: [120, 132, 101, 134, 90, 230, 210]
+			}
+		];
+		
+		var EChartsUtil1 = new EChartsUtil({
+			el: 'container1',//必填项
+			subtext:"子标题",
+			seriesData: seriesData1,//必填项
+			// styleType:'area',//样式类型 ---shadow(鼠标上移有阴影)  和 barLabelRotation(条形标签旋转) 和 area(仅仅针对折线图)
+			// xy:true,//是x-y的样式 还是 y-x的样式 默认是xy轴  true
+			title: '柱状图',//必填项
+			legendData: [],//需要可填[]
+			names: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],//必填项
+			tools:["saveAsImage","dataView","magicType","restore"],//特征工具
+			dataZoom:"x"
+			// resetConfig:resetConfig
+		});
+		
+		var mycharts1 = EChartsUtil1.line();
+		console.log(mycharts1)
+		
+		
+		
+		
+		/****************************************多条数据***************************************/
+		
+		
+		
+		var seriesData2 = [{
+				name: '邮件营销',
+				type: 'line',
+				stack: '总量',
+				// areaStyle: {},
+				data: [120, 132, 101, 134, 90, 230, 210]
+			},
+			{
+				name: '联盟广告',
+				type: 'line',
+				stack: '总量',
+				// areaStyle: {},
+				data: [220, 182, 191, 234, 290, 330, 310]
+			},
+			{
+				name: '视频广告',
+				type: 'line',
+				stack: '总量',
+				// areaStyle: {},
+				data: [150, 232, 201, 154, 190, 330, 410]
+			},
+			{
+				name: '直接访问',
+				type: 'line',
+				stack: '总量',
+				// areaStyle: {normal: {}},
+				data: [320, 332, 301, 334, 390, 330, 320]
+			}
+		];
+
+
+		var EChartsUtil2 = new EChartsUtil({
+			el: 'container2',//必填项
+			subtext:"子标题",
+			seriesData: seriesData2,//必填项
+			// styleType:'area',//样式类型 ---shadow(鼠标上移有阴影)  和 barLabelRotation(条形标签旋转) 和 area(仅仅针对折线图)
+			// xy:true,//是x-y的样式 还是 y-x的样式 默认是xy轴  true
+			title: '柱状图',//必填项
+			legendData: [],//不重要 需要可填[]
+			names: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],//必填项
+			tools:["saveAsImage","dataView","magicType","restore"],//特征工具
+			// resetConfig:resetConfig
+				dataZoom:"x"
+		});
+		
+		var mycharts = EChartsUtil2.line();
+		console.log(mycharts)
+		
+		
+		/****************************************区域有颜色***************************************/
+		
+		var seriesData3 = [{
+				name: '邮件营销',
+				type: 'line',
+				stack: '总量',
+				areaStyle: {},//区域有颜色
+				data: [120, 132, 101, 134, 90, 230, 210]
+			},
+			{
+				name: '联盟广告',
+				type: 'line',
+				stack: '总量',
+				areaStyle: {},//区域有颜色
+				data: [220, 182, 191, 234, 290, 330, 310]
+			},
+			{
+				name: '视频广告',
+				type: 'line',
+				stack: '总量',
+				areaStyle: {},//区域有颜色
+				data: [150, 232, 201, 154, 190, 330, 410]
+			},
+			{
+				name: '直接访问',
+				type: 'line',
+				stack: '总量',
+				areaStyle: {normal: {}},//区域有颜色
+				data: [320, 332, 301, 334, 390, 330, 320]
+			}
+		];
+		
+		var EChartsUtil3= new EChartsUtil({
+			el: 'container3',//必填项
+			subtext:"子标题",
+			seriesData: seriesData3,//必填项
+			// styleType:'area',//样式类型 ---shadow(鼠标上移有阴影)  和 barLabelRotation(条形标签旋转) 和 area(仅仅针对折线图)
+			// xy:true,//是x-y的样式 还是 y-x的样式 默认是xy轴  true
+			title: '柱状图',//必填项
+			legendData: [],//不重要 需要可填[]
+			names: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],//必填项
+			tools:["saveAsImage","dataView","magicType","restore"],//特征工具
+			// resetConfig:resetConfig
+		});
+		
+		var mycharts3 = EChartsUtil3.line();
+		console.log(mycharts3)
+		
+		/****************************************区间折线设置不同的颜色***************************************/
+		
+		//此配置 可以重写部分的配置
+		var resetConfig = {
+			visualMap: { //区域颜色 一般针对x的下标号设置  详情 看官网api
+				show: false,
+				dimension: 0,
+				pieces: [{
+					lte: 3,
+					color: 'green'
+				}, {
+					gt: 3,
+					lte: 5,
+					color: 'red'
+				}]
+			},
+		};
+		var EChartsUtil4= new EChartsUtil({
+			el: 'container4',//必填项
+			subtext:"子标题",
+			seriesData: seriesData1,//必填项
+			// styleType:'area',//样式类型 ---shadow(鼠标上移有阴影)  和 barLabelRotation(条形标签旋转) 和 area(仅仅针对折线图)
+			// xy:true,//是x-y的样式 还是 y-x的样式 默认是xy轴  true
+			title: '柱状图',//必填项
+			legendData: [],//不重要 需要可填[]
+			names: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],//必填项
+			tools:["saveAsImage","dataView","magicType","restore"],//特征工具
+			resetConfig:resetConfig
+		});
+		
+		var mycharts4 = EChartsUtil4.line();
+		console.log(mycharts4)
+		
+	</script>
+</html>

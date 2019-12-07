@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+	<head>
+		<meta charset="utf-8">
+	</head>
+	<body style="height: 100%; margin: 0">
+		<div id="container1" style="height: 100%"></div>
+		<div id="container2" style="height: 100%"></div>
+
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+		<script type="text/javascript" src="echarts-util.js"></script>
+
+		<script>
+			/************************************ 普通仪表盘  *****************************************/
+			var seriesData1 = [
+                {value: 60, name: '访问'},
+                {value: 40, name: '咨询'},
+                {value: 20, name: '订单'},
+                {value: 80, name: '点击'},
+                {value: 100, name: '展现'}
+            ];
+
+
+			var EChartsUtil1 = new EChartsUtil({
+				el: 'container1', //必填项
+				subtext: "子标题",
+				// styleType: 'pie-nest', //需要
+				seriesData: seriesData1, //必填项---如果写了resetConfig  此项可以省略 利用重写的配置去实现效果
+				title: '简单漏斗表', //必填项
+				tools:["saveAsImage","dataView","restore"],//特征工具
+				legendData:['展现', '点击', '访问', '咨询', '订单'],
+			});
+			
+			var myChart = EChartsUtil1.funnel();
+			// console.log(EChartsUtil1);
+			
+			
+			
+	
+		</script>
+	</body>
+</html>
