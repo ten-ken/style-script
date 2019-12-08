@@ -103,10 +103,11 @@
 
 
 
-
-			var seriesData3 = [{
+			//这个严格意义包含了series里面data属性 还增加了type name 属性,不太符合 seriesData的格式
+			var seriesData3 = [
+				{
 					name: '访问来源',
-					type: 'pie',
+					// type: 'pie',
 					data: [{
 							value: 335,
 							name: '直达',
@@ -124,7 +125,7 @@
 				},
 				{
 					name: '访问来源',
-					type: 'pie',
+					// type: 'pie',
 					data: [{
 							value: 335,
 							name: '直达'
@@ -172,6 +173,7 @@
 			});
 
 			var echars3 = EChartsUtil3.pie();
+			console.log(EChartsUtil3)
 		</script>
 	</body>
 </html>
