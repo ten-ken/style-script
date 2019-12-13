@@ -35,6 +35,16 @@
 				}
 			];
 
+			// var resetConfig = {
+			// 	series:[{
+			// 		name: '标题',
+			// 		type: 'pie',
+			// 		radius: '55%',
+			// 		center: ['50%', '50%'],
+			// 		data: seriesData1
+			// 	}]
+			// };
+
 			var EChartsUtil1 = new EChartsUtil({
 				el: 'container1', //必填项
 				// styleType:'barLabelRotation',
@@ -42,13 +52,11 @@
 				seriesData: seriesData1, //必填项
 				title: '简单柱状图', //必填项
 				legendData: [],
-				// names: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
 				// resetConfig: resetConfig
 			});
 			var echars1 = EChartsUtil1.pie();
 
 			/************************************ 环形饼图  *****************************************/
-
 			var seriesData2 = [{
 					value: 335,
 					name: '直接访问'
@@ -70,12 +78,8 @@
 					name: '搜索引擎'
 				}
 			];
-
 			//外部修改默认配置
 			var resetConfig2 = {
-				series: [{
-					radius: ['30%', '45%'],
-				}],
 				legend: {
 					type: 'scroll',
 					orient: 'vertical',
@@ -84,8 +88,6 @@
 					bottom: 20,
 				},
 			}
-
-
 			var EChartsUtil2 = new EChartsUtil({
 				el: 'container2', //必填项
 				styleType: 'ring', //需要
@@ -93,19 +95,14 @@
 				seriesData: seriesData2, //必填项
 				title: '圆形饼图', //必填项
 				legendData: [],
-				// names: ['直接访问','邮件营销','联盟广告','视频广告','搜索引擎'],
+				radius: ['30%', '45%'],
 				resetConfig: resetConfig2
 			});
-
 			var echars2 = EChartsUtil2.pie();
 
 			/************************************ Nested Pies饼图 *****************************************/
-
-
-
 			//这个严格意义包含了series里面data属性 还增加了type name 属性,不太符合 seriesData的格式
-			var seriesData3 = [
-				{
+			var seriesData3 = [{
 					name: '访问来源',
 					// type: 'pie',
 					data: [{
@@ -161,8 +158,6 @@
 					]
 				}
 			];
-
-
 			var EChartsUtil3 = new EChartsUtil({
 				el: 'container3', //必填项
 				styleType: 'pie-nest', //需要
@@ -171,7 +166,6 @@
 				legendData: ['直达', '营销广告', '搜索引擎', '邮件营销', '联盟广告', '视频广告', '百度', '谷歌', '必应', '其他'],
 				// resetConfig: null
 			});
-
 			var echars3 = EChartsUtil3.pie();
 			console.log(EChartsUtil3)
 		</script>

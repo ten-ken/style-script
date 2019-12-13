@@ -1,9 +1,7 @@
 var EChartsUtil = function(params) {
 	params.xy = typeof(params.xy) === 'boolean' ? params.xy : true; //默认是x-y轴
 	this.params = params;
-
 }
-
 
 EChartsUtil.prototype = {
 	constructor: EChartsUtil,
@@ -83,7 +81,7 @@ EChartsUtil.prototype = {
 			},
 		};
 
-		if (params.styleType != 'pie-nest') {
+		if (params.styleType != 'pie-nest' && params.styleType != 'ring') {
 			option.series = _getDefaultPie(params);
 		}
 
@@ -103,7 +101,6 @@ EChartsUtil.prototype = {
 			tooltip: {
 				formatter: "{a} <br/>{b} : {c}%"
 			},
-
 		};
 
 		if (params.resetConfig && typeof params.resetConfig === "object") {
@@ -148,7 +145,7 @@ EChartsUtil.prototype = {
 			option.legend.data = params.legendData;
 		}
 		Object.assign(option, params.resetConfig || {});
-		
+
 		myChart.setOption(option, true);
 		this.options = option;
 		return myChart;
@@ -173,32 +170,20 @@ EChartsUtil.prototype = {
 
 		//圆环
 		if (params.styleType == "ring") {
-			// params.resetConfig =params.resetConfig||{};
-			var defaultRing = _getdefaultRingStyle().series;
-			params.resetConfig.series = params.resetConfig.series || {};
-			var curConfig = JSON.parse(JSON.stringify(params.resetConfig.series));
-			for (var serInd in defaultRing) {
-				params.resetConfig.series[serInd] = params.resetConfig.series[serInd] || {};
-				Object.assign(params.resetConfig.series[serInd], defaultRing[serInd], curConfig[serInd]);
-			}
+			option = _getdefaultRingCfg(params);
 		}
 
 		//多层圆环 ---》一般两层
 		if (params.styleType == "pie-nest") {
-			var defaultRing = _getPieNestCfg().series;
-			params.resetConfig.series = params.resetConfig.series || {};
-			for (var ind in params.seriesData) {
-				Object.assign(defaultRing[ind], params.seriesData[ind]);
-			}
-			Object.assign(params.resetConfig.series, defaultRing);
+			option = _getPieNestCfg(params);
 		}
 
 		var xycfg = needXy ? (params.xy ? _getX_YStyle(params) : _getY_XStyle(params)) : null;
-		
-		if(!params.resetConfig.xAxis && !params.resetConfig.yAxis){
+
+		if (!params.resetConfig.xAxis && !params.resetConfig.yAxis) {
 			Object.assign(params.resetConfig, xycfg);
 		}
-		
+
 
 		for (var ind in params.seriesData) {
 			params.seriesData[ind].label = labelOption;
@@ -219,10 +204,7 @@ EChartsUtil.prototype = {
 			option.dataZoom = _getDefaultZoom(params.dataZoom);
 		}
 
-
-
 		if (params.resetConfig && typeof params.resetConfig === "object") {
-			// console.log(params.resetConfig.series)
 			//这破玩意是个数组  会把存在的数据覆盖（消失了未设置的数据）使用纯对象来处理这部分的数据
 			option.series = option.series || [];
 			for (var serInd in params.resetConfig.series) {
@@ -233,7 +215,6 @@ EChartsUtil.prototype = {
 			}
 			delete params.resetConfig.series;
 			Object.assign(option, params.resetConfig);
-			console.log(params.resetConfig)
 		}
 
 		//针对x轴的数据处理
@@ -247,6 +228,7 @@ EChartsUtil.prototype = {
 
 
 		if (option && typeof option === "object") {
+			console.log(option)
 			myChart.setOption(option, true);
 		}
 		this.options = option;
@@ -364,7 +346,7 @@ function _getShadow() {
 
 //获取y-x的样式 普通情况xy轴颠倒
 function _getY_XStyle(pamars) {
-	var num=5;
+	var num = 5;
 	var yx = {
 		xAxis: [{
 			type: 'value',
@@ -375,7 +357,9 @@ function _getY_XStyle(pamars) {
 				show: false
 			},
 			axisLabel: {
-				formatter: pamars.formatterVal||function(value){return value}
+				formatter: pamars.formatterVal || function(value) {
+					return value
+				}
 			},
 			data: '$$'
 		}],
@@ -394,7 +378,7 @@ function _getX_YStyle(params) {
 				show: false
 			},
 			axisLabel: {
-				formatter:params.formatterVal||formatterVal
+				formatter: params.formatterVal || formatterVal
 			},
 			data: '$$'
 		}],
@@ -433,10 +417,22 @@ function _getTools(arr) {
 }
 
 //获取默认圆环的样式
-function _getdefaultRingStyle() {
-	var seriesStyle = {
+function _getdefaultRingCfg(params) {
+	var seriesData = params.seriesData || [];
+	var ringOptions = {
+		tooltip: {
+			trigger: 'item',
+			formatter: "{a} <br/>{b}: {c} ({d}%)"
+		},
+		legend: {
+			orient: 'vertical',
+			x: 'left',
+			data: params.legend || []
+		},
 		series: [{
-			radius: ['40%', '60%'],
+			name: '访问来源',
+			type: 'pie',
+			radius: params.radius || ['50%', '70%'],
 			avoidLabelOverlap: false,
 			label: {
 				normal: {
@@ -456,15 +452,21 @@ function _getdefaultRingStyle() {
 					show: false
 				}
 			},
+			data: seriesData
 		}]
 	};
-
-	return seriesStyle;
+	return ringOptions;
 }
 
 //获取两层的环形饼图结构 配置
-function _getPieNestCfg() {
+function _getPieNestCfg(params) {
+	var seriesData = params.seriesData || [];
 	var multipleRings = {
+		legend: {
+			orient: 'vertical',
+			x: 'left',
+			data: params.legendData || []
+		},
 		series: [{
 				type: 'pie',
 				selectedMode: 'single',
@@ -518,6 +520,11 @@ function _getPieNestCfg() {
 			}
 		]
 	};
+
+	for (var ind in multipleRings.series) {
+		Object.assign(multipleRings.series[ind], seriesData[ind] || {});
+	}
+
 	return multipleRings;
 }
 
@@ -544,8 +551,6 @@ function _getFunnelCfg(params) {
 		left: '10%',
 		top: 60,
 		bottom: 60,
-		// width: '35%',
-		// height: '85%',
 		min: 0,
 		max: 100,
 		minSize: '0%',
@@ -611,6 +616,6 @@ function _getDefaultZoom(xyF) {
 }
 
 //默认的格式话 x/y轴 文字的方法
-function formatterVal(value){
+function formatterVal(value) {
 	return value.replace(/(.{5})/g, '$1\n');
 }

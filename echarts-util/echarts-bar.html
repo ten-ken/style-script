@@ -32,7 +32,6 @@
 			// 		data: '$$'
 			// 	}],
 			// };
-
 			var seriesData1 = [{
 				name: '其他',
 				type: 'bar',
@@ -40,7 +39,6 @@
 				// stack: '搜索引擎',
 				data: [62, 82, 91, 84, 109, 110, 120, 221, 824, 59, 170, 35, 886]
 			}];
-
 			var EChartsUtil1 = new EChartsUtil({
 				el: 'container1', //必填项
 				// styleType:'barLabelRotation',
@@ -58,9 +56,7 @@
 			var echars1 = EChartsUtil1.bar();
 			console.log(EChartsUtil1)
 			// console.log(echars1)
-
 			/************************************ 多个维度柱图  *****************************************/
-
 			var seriesData2 = [{
 					name: 'Forest',
 					type: 'bar',
@@ -76,7 +72,6 @@
 					data: [220, 182, 191, 234, 290]
 				}
 			];
-
 			var EChartsUtil2 = new EChartsUtil({
 				el: 'container2', //必填项
 				// styleType:'barLabelRotation',
@@ -89,9 +84,7 @@
 				// resetConfig: resetConfig
 			});
 			var echars2 = EChartsUtil2.bar();
-
 			/************************************ 多个维度柱图2  *****************************************/
-
 			//echarts的相关配置 可覆盖原配置或者新增配置
 			var resetConfig3 = {
 				visualMap: {
@@ -118,8 +111,6 @@
 					}
 				}
 			};
-
-
 			var xAxisData = ["Class0", "Class1", "Class2", "Class3", "Class4", "Class5", "Class6", "Class7", "Class8", "Class9"];
 			var seriesData3 = [{
 					name: 'bar',
@@ -142,8 +133,6 @@
 					data: ["0.47", "0.62", "0.86", "1.03", "0.42", "0.58", "0.65", "0.97", "1.25", "0.90"]
 				}
 			];
-
-
 			var EChartsUtil3 = new EChartsUtil({
 				el: 'container3', //必填项
 				styleType: 'shadow', //样式类型 ---shadow(鼠标上移有阴影)  和 barLabelRotation()
@@ -154,12 +143,8 @@
 				names: ['周一', '周二', '周三', '周四', '周五'],
 				resetConfig: resetConfig3
 			});
-
 			var echars3 = EChartsUtil3.bar();
-
-
 			/************************************ 多个维度柱图3  *****************************************/
-
 			var seriesData4 = [{
 					name: '利润',
 					type: 'bar',
@@ -195,7 +180,6 @@
 					data: [-120, -132, -101, -134, -190, -230, -210]
 				}
 			];
-
 			//此配置 可以重写部分的配置
 			var EChartsUtil4 = new EChartsUtil({
 				el: 'container4', //必填项
