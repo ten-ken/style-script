@@ -24,7 +24,7 @@ https://pan.baidu.com/s/1KpwF4vbRgmzLD0bppOlVQQ
 | tools        | 特征工具（可参考官网）| Array  |   无   |否 |支持"saveAsImage","dataView","magicType","restore"，分别代表下载图片/数据视图/图表类型转换/重置（更多可以参考官网写入数组）|
 | dataZoom        | 以x/y轴显示滚动条 | String  |   无   |否 |值有'x'或者'y' 分别代表以哪个轴出现滚动条|
 | resetConfig        | 设置配置可以覆盖原有配置| object  |   无   |是 |格式参考官网的option格式属性，具体的查看echarts.js的内部对应的属性书写|
-
+| radius        | 设置设置圆环的空心范围| Array  |   ['50%', '70%']   |否 ||
 
 ## 相关事件
 
